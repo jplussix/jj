@@ -49,6 +49,8 @@
 - **키 개그**: 천봉수(168cm)가 한이겸(185cm)을 올려다보며 말한다.
 - **박만수 속마음**: 조선 장면에서 한이겸 얼굴 위로 50대 아저씨 목소리 속마음이 한마디씩 깔린다. 상황 설명 겸 개그.
 
+- **연기는 절제한다.** 눈 질끈 감기, 땀방울 흐르기, 볼 부풀려 웃음 참기, 경악한 얼굴 같은 만화식 과장 반응은 쓰지 않는다(사용자 지시). 표정·몸짓은 한국 TV 드라마처럼 작고 자연스럽게, 웃음은 상황과 대사에서 나오게 한다. 프롬프트 [Visual and Camera Treatment]에 "Acting stays natural and restrained: small, realistic facial expressions and gestures, no exaggerated or comedic mugging."를 넣는다.
+
 ## 4. 감동 코드
 
 - 눈물을 짜지 않는다. 담담한 선의가 쌓인다.

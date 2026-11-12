@@ -23,6 +23,11 @@ AI 드라마 유튜브 채널 프로젝트. 대본은 `scripts/`, 인물 설정�
 - 캐릭터 시트는 3칸(상반신 정면 / 전신 정면 / 전신 뒷면), 회색 단색 배경.
 - 의상이 바뀌면 새 시트를 만든다.
 
+## 연기 톤
+
+- **과장된 표현은 뺀다.** 눈 질끈 감기, 땀방울 흐르기, 볼 부풀려 웃음 참기, 경악한 얼굴 같은 만화식 반응 대신 한국 TV 드라마처럼 작고 자연스러운 표정·몸짓으로 쓴다(사용자 지시). 웃음은 상황과 대사에서 나오게 한다.
+- 프롬프트에 "Acting stays natural and restrained: small, realistic facial expressions and gestures, no exaggerated or comedic mugging."를 넣는다.
+
 ## 스킬
 
 `.claude/skills/`에 대본, 콘티, 일관성, 시댄스 프롬프트 스킬이 있다. 출처는 `.claude/skills/NOTICE.md`.

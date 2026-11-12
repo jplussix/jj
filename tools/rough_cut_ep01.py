@@ -28,7 +28,7 @@ SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs),
     ("renders/ep01/clip06a_combined.mp4", 25.6, 0, ("black", 0.6), ("black", 0.35)),
     ("renders/ep01/clip06b_seedance.mp4", 24.06, 0, ("black", 0.35), None),
     ("renders/ep01/clip06c_take1.mp4", 28.05, 0, None, ("black", 0.5)),
-    ("renders/ep01/clip07a_take1.mp4", 28.06, 0, ("black", 0.5), ("black", 1.2)),
+    ("renders/ep01/clip07a_take1.mp4", 26.0, 0, ("black", 0.5), ("black", 0.9)),  # cut before the over-acted laugh
 ]
 starts, t = [], 0.0
 for seg in SEGMENTS:
@@ -123,7 +123,6 @@ SFX = [  # (time, file, volume)
     (S05A - 0.45, "audio/sfx/trans_whoosh.wav", 0.9),   # jump into Joseon (white flash)
     (S05A - 0.05, "audio/sfx/trans_boom.wav", 0.9),
     (S06A + 10.9, "audio/sfx/gag_crickets.mp3", 0.7),  # silence after "회의부터 합시다"
-    (S07A + 25.85, "audio/sfx/gag_boing.mp3", 0.8),    # before the soldier's stifled laugh
 ]
 BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/02_joseon_tension.mp3", S01, S01 + 25.0, 0.0, 0.30),
@@ -133,7 +132,7 @@ BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/03_mansu_fumble.mp3", S05A + 5.0, S05B + 31.4, 0.0, 0.22),
     ("audio/bgm/03_mansu_fumble.mp3", S06A + 0.5, S06B + 24.0, 60.0, 0.18),
     ("audio/bgm/02_joseon_tension.mp3", S06C, S06C + 28.0, 40.0, 0.24),
-    ("audio/bgm/03_mansu_fumble.mp3", S07A + 0.5, S07A + 28.0, 90.0, 0.16),
+    ("audio/bgm/03_mansu_fumble.mp3", S07A + 0.5, S07A + 26.0, 90.0, 0.16),
 ]
 
 
