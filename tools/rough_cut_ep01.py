@@ -17,7 +17,7 @@ R = lambda p: os.path.join(ROOT, p)  # noqa: E731
 
 SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs), (fade-out colour, secs))
     ("renders/ep01/clip01_take1_vo.mp4", 25.056, 0, ("black", 0.8), None),
-    ("assets/title/title_sequence_480p.mp4", 6.042, 0, None, None),
+    ("assets/title/title_sequence_480p.mp4", 5.242, 0.8, None, None),  # skip 0.8 s of silent black
     ("CARD", 2.0, 0, None, None),
     ("renders/ep01/clip02a_take2.mp4", 25.056, 0, ("black", 0.6), ("black", 0.5)),
     ("renders/ep01/clip03_take1_claude.mp4", 28.0, 2.0, ("black", 0.5), ("black", 0.6)),  # first 2s far wide cut
@@ -47,7 +47,9 @@ def _dur(path):
     return round(float(out) - 0.05, 3)
 
 
-SEGMENTS = [(f, d if d is not None else _dur(f), o, fi, fo) for f, d, o, fi, fo in SEGMENTS]
+# frame-align every segment (24 fps) so audio and video have exactly the same length; otherwise the
+# concat drifts ~0.01-0.04 s per segment and lip sync is ~0.25 s off by the last scene.
+SEGMENTS = [(f, int((d if d is not None else _dur(f)) * 24) / 24, o, fi, fo) for f, d, o, fi, fo in SEGMENTS]
 starts, t = [], 0.0
 for seg in SEGMENTS:
     starts.append(t)
@@ -64,7 +66,7 @@ SUBS = [
     (S01 + 11.95, S01 + 14.95, "Inner", "(속마음) 육천? 팔백? …재고 얘긴가."),
     (S01 + 15.05, S01 + 17.7, "Line", "장군, 명을 내리소서."),
     (S01 + 18.0, S01 + 20.7, "Inner", "(속마음) 장군? 나한테 하는 소리야?"),
-    (SCARD + 0.2, SCARD + 1.9, "Card", "열여덟 시간 전"),
+    (SCARD + 0.2, SCARD + 1.9, "Card", "18시간 전"),
     (S02A + 0.42, S02A + 3.6, "Line", "부장님… 아니, 선배님. 저도 마음이 안 좋습니다."),
     (S02A + 4.68, S02A + 6.95, "Line", "최 대리… 아, 상무님."),
     (S02A + 7.6, S02A + 9.8, "Line", "우리 애 취직할 때까지만요. 일 년만."),
@@ -97,32 +99,30 @@ SUBS = [
     (S05B + 18.2, S05B + 21.0, "Line", "열은 없으신데, 말씀이 영 이상하십니다."),
     (S05B + 21.1, S05B + 24.1, "Line", "적이 진을 쳤습니다. 성루로 가셔야 합니다."),
     # 06A-06C: not transcribed (credits) - placed from speech-band envelope + prompt timeline.
-    (S06A + 0.6, S06A + 4.0, "Place", "이튿날 아침, 성루"),
-    (S06A + 1.8, S06A + 4.4, "Line", "적이 육천입니다. 아군은 팔백입니다."),
-    (S06A + 4.8, S06A + 6.6, "Line", "장군, 명을 내리소서."),
-    (S06A + 8.2, S06A + 10.8, "Line", "일단 회의부터 합시다."),
-    (S06A + 11.7, S06A + 14.7, "Line", "장군, 저희한테 '합시다'라니요."),
-    (S06A + 15.2, S06A + 17.3, "Line", "그리고 회의가 무엇입니까?"),
-    (S06A + 18.0, S06A + 19.8, "Line", "다 같이 앉아서 얘기하는 거예요."),
-    (S06A + 19.9, S06A + 23.2, "Line", "아니, …것이오. 것이다!"),
-    (S06B + 2.7, S06B + 4.6, "Line", "장군님 말씀이 왜 저러시나."),
-    (S06B + 5.5, S06B + 7.5, "Line", "어젯밤에 말에서 떨어지셨다던데."),
-    (S06B + 12.1, S06B + 15.0, "Line", "먼저 현황부터. 쌀이 얼마나 남았소?"),
-    (S06B + 15.8, S06B + 18.7, "Line", "삼백 석입니다. 넉 달은 버팁니다."),
-    (S06B + 20.3, S06B + 21.6, "Line", "장부 좀 봅시다."),
-    (S06C + 2.45, S06C + 4.45, "Line", "지난달에 이백 석이 들어왔는데,"),
-    (S06C + 5.25, S06C + 6.5, "Line", "나간 건 오십 석이네."),
-    (S06C + 7.55, S06C + 8.4, "Line", "그렇습니다."),
-    (S06C + 9.65, S06C + 11.15, "Line", "그 전에 남은 게 백오십 석."),
-    (S06C + 11.65, S06C + 12.7, "Line", "합치면 삼백 석."),
-    (S06C + 13.1, S06C + 13.9, "Line", "숫자는 맞소."),
-    (S06C + 14.5, S06C + 15.95, "Line", "그런데 받은 사람 수결이"),
-    (S06C + 16.3, S06C + 17.7, "Line", "석 달째 한 사람 글씨요."),
-    (S06C + 18.1, S06C + 21.55, "Line", "입고하는 사람하고 확인하는 사람이 같으면 안 되지."),
-    (S06C + 21.6, S06C + 22.3, "Line", "창고 갑시다."),
-    (S06C + 22.45, S06C + 23.2, "Line", "지금 말입니까?"),
-    (S06C + 23.55, S06C + 24.5, "Line", "적이 코앞인데."),
-    (S06C + 25.05, S06C + 27.6, "Line", "그러니까 지금 세야지."),
+    # 06A-06C: retimed with local Whisper (user: subtitles off at "창고 갑시다").
+    (S06A + 0.0, S06A + 3.1, "Line", "적이 육천입니다."),
+    (S06A + 3.4, S06A + 4.7, "Line", "아군은 팔백입니다."),
+    (S06A + 5.0, S06A + 6.85, "Line", "장군, 명을 내리소서."),
+    (S06A + 8.35, S06A + 11.05, "Line", "일단 회의부터 합시다."),
+    (S06A + 11.85, S06A + 15.1, "Line", "장군, 저희한테 '합시다'라니요."),
+    (S06A + 15.35, S06A + 17.3, "Line", "그리고 회의가 무엇입니까?"),
+    (S06A + 18.0, S06A + 19.5, "Line", "다 같이 앉아서 얘기하는 거예요."),
+    (S06A + 21.1, S06A + 23.2, "Line", "아니, …것이오. 것이다!"),
+    (S06B + 2.0, S06B + 4.9, "Line", "장군님 말씀이 왜 저러시나."),
+    (S06B + 5.7, S06B + 8.8, "Line", "어젯밤에 말에서 떨어지셨다던데."),
+    (S06B + 12.3, S06B + 15.1, "Line", "먼저 현황부터. 쌀이 얼마나 남았소?"),
+    (S06B + 16.0, S06B + 18.1, "Line", "삼백 석입니다. 넉 달은 버팁니다."),
+    (S06B + 20.4, S06B + 21.4, "Line", "장부 좀 봅시다."),
+    (S06C + 2.3, S06C + 6.75, "Line", "지난달에 이백 석이 들어왔는데, 나간 건 오십 석이네."),
+    (S06C + 7.8, S06C + 8.6, "Line", "그렇습니다."),
+    (S06C + 9.8, S06C + 13.0, "Line", "그 전에 남은 게 백오십 석. 합치면 삼백 석."),
+    (S06C + 13.2, S06C + 14.3, "Line", "숫자는 맞소."),
+    (S06C + 14.7, S06C + 18.2, "Line", "그런데 받은 사람 수결이 석 달째 한 사람 글씨요."),
+    (S06C + 20.1, S06C + 22.45, "Line", "입고하는 사람하고 확인하는 사람이 같으면 안 되지."),
+    (S06C + 22.6, S06C + 23.3, "Line", "창고 갑시다."),
+    (S06C + 23.65, S06C + 24.6, "Line", "지금 말입니까?"),
+    (S06C + 25.2, S06C + 26.2, "Line", "적이 코앞인데."),
+    (S06C + 26.55, S06C + 27.7, "Line", "그러니까 지금 세야지."),
     (S07A + 0.5, S07A + 3.5, "Place", "군량 창고"),
     (S07A + 2.0, S07A + 3.05, "Line", "한 줄에 열 섬씩."),
     (S07A + 3.5, S07A + 5.2, "Line", "줄 맞춰 다시 쌓으시오."),
@@ -185,6 +185,7 @@ SUBS = [
 ]
 SFX = [  # (time, file, volume)
     (S01 + 20.9, "audio/sfx/gag_crickets.mp3", 0.9),
+    (STITLE - 1.1, "audio/sfx/riser.wav", 0.8),          # builds into the title drum (title 2.2 s - 0.8 s offset)
     (S03 + 19.95, "audio/sfx/gag_crickets.mp3", 0.8),
     (S05A + 27.4, "audio/sfx/gag_boing.mp3", 0.8),
     (S05B + 26.2, "audio/sfx/gag_boing.mp3", 0.9),
@@ -197,20 +198,18 @@ SFX = [  # (time, file, volume)
     (S07H + 17.6, "audio/sfx/phone_alarm.wav", 0.35),   # alarm bleeds in before the white flash
     (S07H + 19.4, "audio/sfx/trans_whoosh.wav", 0.7),
 ]
-BGM = [  # (file, start, end, source offset, volume)
-    ("audio/bgm/02_joseon_tension.mp3", S01, S01 + 25.0, 0.0, 0.30),
-    ("audio/bgm/05_bittersweet.mp3", SCARD, S02A + 25.0, 0.0, 0.26),
-    ("audio/bgm/04_modern_daily.mp3", S03, S03 + 28.0, 0.0, 0.18),
-    ("audio/bgm/05_bittersweet.mp3", S04A, S04A + 23.0, 30.0, 0.22),
-    ("audio/bgm/03_mansu_fumble.mp3", S05A + 5.0, S05B + 31.4, 0.0, 0.22),
-    ("audio/bgm/03_mansu_fumble.mp3", S06A + 0.5, S06B + 24.0, 60.0, 0.18),
-    ("audio/bgm/02_joseon_tension.mp3", S06C, S06C + 28.0, 40.0, 0.24),
-    ("audio/bgm/03_mansu_fumble.mp3", S07A + 0.5, S07AL + 4.0, 90.0, 0.16),
-    ("audio/bgm/02_joseon_tension.mp3", S07B + 6.0, S07B + 24.4, 70.0, 0.22),
-    ("audio/bgm/02_joseon_tension.mp3", S07C + 0.5, S07D2 + 20.0, 100.0, 0.18),
-    ("audio/bgm/03_mansu_fumble.mp3", S07E + 0.5, S07F + 23.0, 30.0, 0.15),
-    ("audio/bgm/02_joseon_tension.mp3", S07G, S07H + 19.5, 0.0, 0.24),
-    ("audio/bgm/04_modern_daily.mp3", S08A + 1.0, S08B + 12.0, 0.0, 0.16),
+BGM = [  # (file, start, end, source offset, volume) - user: BGM was too loud and wrong in many places.
+    # Cue-based: music under openings, transitions and key beats only; quieter; ducked hard under speech.
+    ("audio/bgm/02_joseon_tension.mp3", S01, STITLE + 1.0, 0.0, 0.16),     # cold open, carries into the title
+    ("audio/bgm/05_bittersweet.mp3", SCARD, S02A + 25.0, 0.0, 0.12),
+    ("audio/bgm/04_modern_daily.mp3", S03, S03 + 12.0, 0.0, 0.09),
+    ("audio/bgm/05_bittersweet.mp3", S04A, S04A + 23.0, 30.0, 0.11),
+    ("audio/bgm/03_mansu_fumble.mp3", S05A + 5.0, S05A + 30.0, 0.0, 0.10),
+    ("audio/bgm/03_mansu_fumble.mp3", S06A + 0.5, S06A + 12.0, 60.0, 0.09),
+    ("audio/bgm/02_joseon_tension.mp3", S06C + 12.0, S06C + 28.0, 40.0, 0.12),
+    ("audio/bgm/02_joseon_tension.mp3", S07B + 6.0, S07B + 24.4, 70.0, 0.12),
+    ("audio/bgm/02_joseon_tension.mp3", S07G, S07H + 19.5, 0.0, 0.13),     # Kim Jongseo arrives
+    ("audio/bgm/04_modern_daily.mp3", S08A + 16.0, S08B + 12.0, 0.0, 0.09),
 ]
 
 
@@ -230,7 +229,7 @@ Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour,
 Style: Line,NanumGothic,26,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,2.4,0,2,30,30,26,1
 Style: Inner,NanumGothic,25,&H0060E8FF,&H0060E8FF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,2.4,0,2,30,30,26,1
 Style: Place,NanumMyeongjo,22,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,1.8,0,7,34,30,30,1
-Style: Card,NanumMyeongjo,38,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,2,0,1,0,0,5,30,30,30,1
+Style: Card,Nanum Pen Script,64,&H006DC4F2,&H006DC4F2,&H00102030,&H00000000,0,0,0,0,100,100,1,0,1,1.2,0,5,30,30,30,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -238,6 +237,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     with open(path, "w", encoding="utf-8") as f:
         f.write(head)
         for a, b, st, txt in SUBS:
+            if st == "Place":
+                continue  # user: no location captions
             fade = r"{\fad(300,300)}" if st in ("Place", "Card") else r"{\fad(80,80)}"
             f.write(f"Dialogue: 0,{ts(a)},{ts(b)},{st},,0,0,0,,{fade}{txt}\n")
 
@@ -265,7 +266,7 @@ def main():
                  "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", out])
         else:
             run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", str(off), "-i", R(src), "-vf", "scale=854:480,fps=24,setsar=1" + vfx,
-                 "-af", "aresample=48000,aformat=channel_layouts=stereo" + afx, "-t", str(dur),
+                 "-af", "aresample=48000,aformat=channel_layouts=stereo" + afx + f",apad,atrim=0:{dur}", "-t", str(dur),
                  "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-c:a", "aac", "-b:a", "192k", out])
         norm.append(out)
     lst = os.path.join(TMP, "list.txt")
@@ -290,7 +291,7 @@ def main():
         bgm_labels.append(f"[b{k}]")
         n += 1
     fc.append("".join(bgm_labels) + f"amix=inputs={len(bgm_labels)}:normalize=0[bgm]")
-    fc.append("[bgm][key]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=450[bgmd]")
+    fc.append("[bgm][key]sidechaincompress=threshold=0.012:ratio=20:attack=10:release=600[bgmd]")
     mix.append("[bgmd]")
     for k, (tm, f, vol) in enumerate(SFX):
         inputs += ["-i", R(f)]
