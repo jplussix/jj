@@ -68,3 +68,9 @@ Stage 1 is a medium shot at eye level. Stages 2 and 3 slowly push in to a waist-
 [Maintain Consistency]
 Keep Han Igyeom's face, topknot, beard and black cheollik with the leather vest identical throughout; keep the washbasin on his right and the lamp light from the left.
 ```
+
+## 테이크 기록
+
+| 테이크 | 파일 | job | 결과 |
+|---|---|---|---|
+| 1 | `renders/ep01/clip05a_take1.mp4` | `025d13f9-6976-49f4-8487-4e4da9d20ce5` | 얼굴·의상·배경 유지 양호. 4단계 구성 그대로 나옴. 대사 발음은 사람이 들어서 확인 필요 |
