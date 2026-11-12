@@ -631,4 +631,6 @@ No BGM; only ambient and action sounds: <smartphone screen tap>, <uniform cloth 
 | 물류센터 창고 | `docs/locations/warehouse.png` | `7d197106-d9e2-4757-9816-77bf49c2c4ea` |
 | 관리사무소 | `docs/locations/mgmt_office.png` | `526d3341-2994-4e87-b84e-22120c586251` |
 | 거실 (식탁·소파, 밤) | `docs/locations/living_room.png` (GPT, ChatGPT 구독) | media `d41bfb3a-186f-4f03-9b19-9ebca8d5e2bc` |
-| 지휘 군막, 군량 창고, 거실, 현관, 박만수 경비복 | 아직 없음 | |
+| 김종서 시트 | `docs/sheets/kimjongseo.png` (GPT) | 업로드 전 |
+| 성문 안 마당 (아침) | `docs/locations/gate_courtyard_morning.png` (GPT) | 업로드 전 |
+| 거실 아침 | `docs/locations/living_room_morning.png` (GPT) | media `5b86f75a-81e1-410d-b9d3-9d44b1640d9c` |
