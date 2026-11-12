@@ -20,7 +20,7 @@ for r in refs:
     cmd += ["-i", r]
 if refs:
     instr += " Use the attached image(s) as the identity reference: keep the same face exactly."
-subprocess.run(cmd + [instr], cwd=ws, check=True,
+subprocess.run(cmd + ["--", instr] if refs else cmd + [instr], cwd=ws, check=True,
                timeout=900, stdout=subprocess.DEVNULL)
 src = os.path.join(ws, "result.png")
 if not os.path.exists(src):
