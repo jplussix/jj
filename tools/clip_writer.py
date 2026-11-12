@@ -76,7 +76,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--episode", type=int, required=True)
     ap.add_argument("--clips", nargs="+", required=True)
-    ap.add_argument("--model", default="gemini-4-argon")
+    ap.add_argument("--model", default="agy:gemini-4-argon-high")
     ap.add_argument("--allow-fallback", action="store_true", help="use Flash models if the main model is unavailable")
     ap.add_argument("--max-rounds", type=int, default=3)
     ap.add_argument("--with-chat", action="store_true", help="append the user<->Claude chat log")

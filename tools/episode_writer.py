@@ -79,7 +79,52 @@ def _post(model, messages, max_tokens):
         return json.loads(r.read().decode("utf-8"))
 
 
+AGY = os.path.expanduser("~/.local/bin/agy")
+AGY_WS = os.environ.get("AGY_WORKSPACE", "/tmp/agy_workspace")
+
+
+def call_agy(model, messages):
+    """Run a prompt through the Antigravity CLI (Google AI Pro subscription login).
+
+    The CLI does not read stdin and arguments are size-limited, so the conversation is written
+    to files in an empty workspace and the agent is told to read them and print its answer.
+    """
+    import shutil
+    import subprocess
+    os.makedirs(AGY_WS, exist_ok=True)
+    for f in os.listdir(AGY_WS):
+        path = os.path.join(AGY_WS, f)
+        if os.path.isfile(path):
+            os.remove(path)
+    system = "\n\n".join(m["content"] for m in messages if m["role"] == "system")
+    convo = []
+    for m in messages:
+        if m["role"] == "user":
+            convo.append("## 요청\n\n" + m["content"])
+        elif m["role"] == "assistant":
+            convo.append("## 네가 앞서 낸 답\n\n" + m["content"])
+    with open(os.path.join(AGY_WS, "brief.md"), "w", encoding="utf-8") as f:
+        f.write(system)
+    with open(os.path.join(AGY_WS, "request.md"), "w", encoding="utf-8") as f:
+        f.write("\n\n---\n\n".join(convo) + "\n\n---\n\n위의 마지막 '요청'에 답한다.\n")
+    prompt = ("현재 폴더의 brief.md(작업 설명서)와 request.md(요청과 지금까지의 주고받음)를 끝까지 읽어라. "
+              "그다음 request.md의 마지막 요청에 대한 답을 brief.md 규격대로 응답 본문에만 출력해라. "
+              "파일을 만들거나 수정하지 말고, 명령을 실행하지 말고, 설명이나 인사 없이 결과만 낸다.")
+    r = subprocess.run([AGY, "-p", prompt, "--model", model, "--disable-slash-commands",
+                        "--output-format", "json"], cwd=AGY_WS, capture_output=True, text=True, timeout=1800)
+    out = r.stdout[r.stdout.find("{"):] if "{" in r.stdout else ""
+    if not out:
+        raise RuntimeError(f"agy failed: {r.stdout[-500:]} {r.stderr[-500:]}")
+    d = json.loads(out)
+    if d.get("status") != "SUCCESS":
+        raise RuntimeError(f"agy status {d.get('status')}: {str(d)[:500]}")
+    usage = dict(d.get("usage", {}), model=f"agy:{model}", seconds=round(d.get("duration_seconds", 0)))
+    return d.get("response", ""), "stop", usage
+
+
 def call_gemini(model, messages, max_tokens, allow_fallback=False):
+    if model.startswith("agy:"):
+        return call_agy(model[4:], messages)
     """Call Gemini; retry 503/429-rate with backoff; other models only with allow_fallback.
 
     A free-tier quota of 0 for a model (paid-only model) skips straight to the fallback.
@@ -124,7 +169,7 @@ def split_files(text):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--episode", type=int, required=True)
-    ap.add_argument("--model", default="gemini-4-argon")
+    ap.add_argument("--model", default="agy:gemini-4-argon-high")
     ap.add_argument("--allow-fallback", action="store_true", help="use Flash models if the main model is unavailable")
     ap.add_argument("--max-rounds", type=int, default=3)
     ap.add_argument("--max-tokens", type=int, default=60000)
