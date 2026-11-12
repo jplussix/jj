@@ -17,3 +17,6 @@
 
 ## 06B 보정 (소리 참조 방식)
 군관1 "장군님 말씀이 왜 저러시나."를 eleven_v4(Kyung Hoon)로 만들고 시댄스 audio_references로 넣어 4초 재생성(`review/audio_ref_test/officer1_test.mp4`, 12크레딧). 06B 2.0~4.75초 컷을 그 0.6~3.35초로 교체 → `renders/ep01/clip06b_fixed.mp4`. 앞뒤 모두 컷 전환 지점이라 이음매 없음.
+
+## 06B 보정 (시댄스 목소리, 사용자 지시)
+목소리 규칙이 "대사는 시댄스 목소리"로 바뀌어, 군관1 "장군님 말씀이 왜 저러시나."를 소리 참조 없이 4초로 재생성(job `3268e247-7f82-4627-b63c-19e707afb199`, 12크레딧, `review/jangun_seedance/officer1_seedance.mp4`). 같은 자리(take1 2.0~4.75초 ← 새 컷 0.6~3.35초)에 끼워 `renders/ep01/clip06b_seedance.mp4`. 러프컷 v3는 이 판을 쓴다.

@@ -26,7 +26,7 @@ SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs),
     ("renders/ep01/clip05a_take1.mp4", 30.08, 0, ("white", 0.9), None),
     ("renders/ep01/clip05b_combined.mp4", 31.48, 0, None, ("black", 0.5)),
     ("renders/ep01/clip06a_combined.mp4", 25.6, 0, ("black", 0.6), ("black", 0.35)),
-    ("renders/ep01/clip06b_fixed.mp4", 24.06, 0, ("black", 0.35), None),
+    ("renders/ep01/clip06b_seedance.mp4", 24.06, 0, ("black", 0.35), None),
     ("renders/ep01/clip06c_take1.mp4", 28.05, 0, None, ("black", 1.2)),
 ]
 starts, t = [], 0.0
