@@ -1,0 +1,4 @@
+# conversation history and prompts that embed it stay local
+handoff/chat_log.md
+storyboard/*/gemini/last_prompt.md
+tools/__pycache__/

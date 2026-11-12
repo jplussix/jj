@@ -93,7 +93,7 @@ Keep Han Igyeom's and Cheon Bongsu's faces and clothing identical to their refer
 
 ```
 [Generation Goal]
-A quiet, sad office scene: a veteran warehouse manager is laid off by his former subordinate and signs the paper.
+A quiet, sad office scene: a veteran warehouse manager is laid off by his former subordinate and signs the resignation paper.
 
 [Reference Material Roles]
 @Image 1 defines Park Mansu's face, hairstyle, build and clothing. Do not use the grey background or the panel layout.
@@ -124,7 +124,7 @@ Keep both faces and clothing identical to their references; keep Park Mansu on t
 
 ```
 [Generation Goal]
-A short bittersweet moment: on his way out with his belongings, a laid-off warehouse manager still corrects a forklift driver.
+A short bittersweet moment: on his way out carrying his belongings, a laid-off warehouse manager still corrects a forklift driver.
 
 [Reference Material Roles]
 @Image 1 defines Park Mansu's face, hairstyle, build and clothing. Do not use the grey background or the panel layout.
@@ -134,14 +134,14 @@ A short bittersweet moment: on his way out with his belongings, a laid-off wareh
 Park Mansu corresponds to @Image 1 and carries a cardboard box of personal belongings in both arms. A young forklift driver in a yellow safety vest and helmet sits in a forklift ahead of him, about to lower a pallet in the middle of the aisle. A large painted number 3 marks the lane on the floor.
 
 [Event Script]
-Stage 1 - Leaving: Park Mansu walks down the aisle with the box. The forklift begins lowering its pallet into the aisle. Seeing it, Park Mansu stops. End state: he faces the forklift.
+Stage 1 - Leaving: Park Mansu walks down the aisle carrying the box. The forklift begins lowering its pallet into the aisle. Seeing it, Park Mansu stops. End state: he faces the forklift.
 Stage 2 - One last order: Park Mansu calls out in Korean, {어이, 거기 내리면 삼 번 라인 막혀. 오 번 뒤로 빼.} The driver startles and answers in Korean, {아, 네! 부장님!} and reverses the forklift. Park Mansu watches until it has fully turned away, then walks on toward the exit door. End state: hold on his back as he reaches the door.
 
 [Visual and Camera Treatment]
 Medium shot tracking backward in front of Park Mansu, then a reverse shot of the forklift, then a medium-wide shot from behind him walking to the bright exit door. High warehouse lighting, daylight spilling from the open door.
 
 [Audio]
-<forklift engine and reverse beeping>, <footsteps on concrete>. Park Mansu speaks Korean in a warm, slightly husky baritone of a man in his fifties, raising his voice firmly. The driver speaks Korean in a young, startled male voice.
+<forklift engine and reverse beeping>, <footsteps on concrete>. Park Mansu speaks Korean in a warm, slightly husky baritone of a man in his fifties, speaking slowly and politely. The driver speaks Korean in a young, startled male voice.
 
 [Maintain Consistency]
 Keep Park Mansu's face and clothing identical to @Image 1 and the box in his arms throughout.
