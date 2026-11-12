@@ -279,6 +279,45 @@ No BGM; only ambient and action sounds: <canvas tent flap rustling open>, <brass
 
 **효과음 자리**: 25초 한이겸이 투구를 거꾸로 쓰는 순간 [효과음: 띠용]
 
+## 클립 05B-2 — 군막, 투구 거꾸로 (8초)
+
+**참조**: 1 한이겸 시트, 2 천봉수 시트, 3 군막, 4 투구 (`docs/closeups/helmet_ref_05b.png`, 05B take1 27초 프레임)
+
+05B take1에서 투구를 거꾸로 쓰는 게 안 보여서, 0~24초는 take1을 쓰고 이 8초를 이어 붙인다.
+
+```
+[Generation Goal]
+Live-action Korean historical comedy drama, real-time natural speed: inside a Joseon commander's tent at dawn, a young general puts his iron helmet on backwards so its leather neck-guard hangs over his face like a curtain, gropes blindly, and his stocky officer silently twists it around the right way. The camera stays at eye level.
+
+[Reference Material Roles]
+@Image 1 defines only Han Igyeom's face, hairstyle, build and clothing. Do not copy its framing, grey background or panel layout.
+@Image 2 defines only Cheon Bongsu's face, hairstyle, build and clothing. Do not copy its framing, grey background or panel layout.
+@Image 3 defines only the commander's tent's canvas walls, wooden pillars, weapon rack and light. @Image 3 is a style reference only, not a fixed keyframe.
+@Image 4 defines only the iron helmet's design: a conical polished iron bowl with a red horsehair plume on top and a layered neck-guard that hangs from its back edge. Do not copy its framing or the people in it.
+
+[Subjects and Relationships]
+Han Igyeom corresponds to @Image 1: an original 28-year-old Korean man, 185 cm, broad-shouldered powerful warrior build, short full black beard and mustache, neatly trimmed, a thin pale scar through the outer end of the left eyebrow, long black hair tied up in a traditional Joseon topknot, wearing a black heavy cotton cheollik military robe with a dark crimson inner lining showing at the collar, a dark brown leather lamellar vest with small iron studs over it, and brown leather bracers on both forearms.
+Cheon Bongsu corresponds to @Image 2: an original 45-year-old Korean man, 168 cm, short and stocky with a barrel chest, round broad face with full ruddy cheeks, a short dense black mustache, a black woven horsehair headband (manggeon) across the forehead, wearing brown leather lamellar armor laced with dark cord over a dark grey cotton robe.
+The top of Cheon Bongsu's head reaches only Han Igyeom's nose. Han Igyeom always sits on the edge of the low wooden sleeping platform on the left of the frame; Cheon Bongsu always stands on the right, facing him.
+
+[Event Script]
+0-2s: Medium shot at eye level of Han Igyeom seated on the left, holding the iron helmet from @Image 4 in both hands in front of his chest, with the hanging neck-guard turned toward his own face. Cheon Bongsu stands on the right, hands lowered. Both mouths closed.
+2-4s: Medium close-up of Han Igyeom. He jams the helmet down onto his head backwards: the layered neck-guard drops in front of his face like a curtain, covering his eyes, nose and mouth completely, and the red horsehair plume flops forward over the front. Only his beard tip shows below the neck-guard.
+4-6s: Medium two-shot at eye level. Han Igyeom, blinded behind the neck-guard, sways his head and gropes the air in front of him with both hands. Cheon Bongsu stands frozen on the right, round eyes wide, mustache twitching, mouth closed.
+6-8s: The key moment, same two-shot, camera locked off. Cheon Bongsu steps in, grips both sides of the helmet with his hands, and twists it a half turn so the neck-guard swings around to the back of Han Igyeom's neck and his face appears, blinking. Final frame: held still on Han Igyeom with the helmet now on correctly and blinking at Cheon Bongsu, and Cheon Bongsu with his hands lowered, staring up at him, both mouths closed.
+
+[Visual and Camera Treatment]
+All shots at eye level from the front of the sleeping platform, Han Igyeom on the left and Cheon Bongsu on the right. Camera on a tripod, locked off. Faces and the helmet fill a large part of the frame. Lighting for this location: warm amber oil-lamp light from the left side of the tent, cool blue dawn light through the entrance flap on the right.
+
+[Audio]
+No BGM; only ambient and action sounds: <iron helmet clanking down onto his head>, <muffled grunt from behind the neck-guard>, <leather armor creaking>, <iron scraping as the helmet is twisted around>, <distant fast war drums outside>. No dialogue in this clip; both mouths stay closed.
+
+[Maintain Consistency]
+@Image 1 is Han Igyeom, @Image 2 is Cheon Bongsu, @Image 3 is the tent, @Image 4 is the helmet. Keep both faces, hair and clothing identical to their references, the helmet design identical to @Image 4, Han Igyeom on the left seated and Cheon Bongsu on the right standing shorter. Normal human eyes. Real-time natural speed, no slow motion. No subtitles, no on-screen text.
+```
+
+---
+
 ## 클립 06A — 성루, 아침 (25초)
 
 **참조**: 1 한이겸 시트, 2 천봉수 시트, 3 조윤 시트, 4 성루
