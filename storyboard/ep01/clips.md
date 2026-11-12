@@ -320,7 +320,7 @@ No BGM; only ambient and action sounds: <iron helmet clanking down onto his head
 
 ## 클립 06A — 성루, 아침 (24초)
 
-**참조**: 1 한이겸 시트, 2 천봉수 시트, 3 조윤 시트, 4 성루(아침 버전 필요), 5 투구 (`docs/closeups/helmet_ref_05b.png`)
+**참조**: 1 한이겸 시트, 2 천봉수 시트, 3 조윤 시트, 4 성루 아침 (`docs/locations/wall_morning.png`, media `68547fb2-…`), 5 투구 (media `5677efe3-…`) (`docs/closeups/helmet_ref_05b.png`)
 
 ```
 [Generation Goal]
@@ -330,7 +330,8 @@ Live-action Korean historical comedy drama, real-time natural speed: on a Joseon
 @Image 1 defines only Han Igyeom's face, hairstyle, build and clothing. Do not copy its framing, grey background or panel layout.
 @Image 2 defines only Cheon Bongsu's face, hairstyle, build and clothing. Do not copy its framing, grey background or panel layout.
 @Image 3 defines only Jo Yun's face, hairstyle, build and clothing. Do not copy its framing, grey background or panel layout.
-@Image 4 defines only the fortress wall's stone crenellations, walkway and wooden gate tower in bright morning light: the night torches from the reference are gone, replaced by rows of dark enemy tents spread across the snowy plain beyond the wall. @Image 4 is a style reference only, not a fixed keyframe.
+@Image 4 defines only the fortress wall's frosted stone crenellations, snowy walkway, red banners, gate tower and the morning view of the enemy tents across the snowy plain. @Image 4 is a style reference only, not a fixed keyframe.
+@Image 5 defines only the design of Han Igyeom's helmet: a conical polished iron helmet with a red horsehair plume and a layered neck-guard at the back. Do not copy the people or framing in it.
 
 [Subjects and Relationships]
 Han Igyeom corresponds to @Image 1: an original 28-year-old Korean man, 185 cm, broad-shouldered powerful warrior build with a thick chest and heavy muscular arms, short full black beard and mustache, neatly trimmed, a thin pale scar cuts vertically through the outer end of the left eyebrow, long black hair tied up in a traditional Joseon topknot, with a few loose strands falling beside the face, wearing a black heavy cotton cheollik military robe with a dark crimson inner lining showing at the collar, a dark brown leather lamellar vest with small iron studs over it, a wide black leather belt with a plain brass buckle, dark trousers tucked into black leather boots, and brown leather bracers on both forearms.
