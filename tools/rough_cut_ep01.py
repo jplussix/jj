@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Episode 1 rough cut: join finished clips, burn subtitles, add BGM (ducked) and gag SFX.
 
-Order: 01 -> title -> "열여덟 시간 전" -> 02A -> 03 -> 04A -> 04B -> 05A -> 05B.
+Order: 01 -> title -> "열여덟 시간 전" -> 02A -> 03 -> 04A -> 04B -> 05A -> 05B -> 06A -> 06B -> 06C.
+Transitions are per-segment fades (no overlap, so subtitle times stay simple):
+black dips between scenes, a white flash + whoosh/boom for the jump into Joseon.
 Subtitle times come from the ElevenLabs transcripts of each clip (word timestamps).
-Output: renders/ep01/ep01_roughcut_v2.mp4
+Output: renders/ep01/ep01_roughcut_v3.mp4
 """
 import os
 import subprocess
@@ -13,23 +15,26 @@ TMP = os.environ.get("CUT_TMP", "/tmp/roughcut")
 os.makedirs(TMP, exist_ok=True)
 R = lambda p: os.path.join(ROOT, p)  # noqa: E731
 
-SEGMENTS = [  # (file, duration, start offset in source)
-    ("renders/ep01/clip01_take1_vo.mp4", 25.056, 0),
-    ("assets/title/title_sequence_480p.mp4", 6.042, 0),
-    ("CARD", 2.0, 0),
-    ("renders/ep01/clip02a_take2.mp4", 25.056, 0),
-    ("renders/ep01/clip03_take1_claude.mp4", 28.0, 2.0),   # first 2s far wide cut
-    ("renders/ep01/clip04a_take2.mp4", 23.0, 0),
-    ("renders/ep01/clip04b_take2.mp4", 10.0, 0),
-    ("renders/ep01/clip05a_take1.mp4", 30.08, 0),
-    ("renders/ep01/clip05b_combined.mp4", 31.48, 0),
+SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs), (fade-out colour, secs))
+    ("renders/ep01/clip01_take1_vo.mp4", 25.056, 0, ("black", 0.8), None),
+    ("assets/title/title_sequence_480p.mp4", 6.042, 0, None, None),
+    ("CARD", 2.0, 0, None, None),
+    ("renders/ep01/clip02a_take2.mp4", 25.056, 0, ("black", 0.6), ("black", 0.5)),
+    ("renders/ep01/clip03_take1_claude.mp4", 28.0, 2.0, ("black", 0.5), ("black", 0.6)),  # first 2s far wide cut
+    ("renders/ep01/clip04a_take2.mp4", 23.0, 0, ("black", 0.6), ("black", 0.25)),
+    ("renders/ep01/clip04b_take2.mp4", 10.0, 0, ("black", 0.25), ("white", 0.45)),
+    ("renders/ep01/clip05a_take1.mp4", 30.08, 0, ("white", 0.9), None),
+    ("renders/ep01/clip05b_combined.mp4", 31.48, 0, None, ("black", 0.5)),
+    ("renders/ep01/clip06a_combined.mp4", 25.6, 0, ("black", 0.6), ("black", 0.35)),
+    ("renders/ep01/clip06b_fixed.mp4", 24.06, 0, ("black", 0.35), None),
+    ("renders/ep01/clip06c_take1.mp4", 28.05, 0, None, ("black", 1.2)),
 ]
 starts, t = [], 0.0
-for _, d, _o in SEGMENTS:
+for seg in SEGMENTS:
     starts.append(t)
-    t += d
+    t += seg[1]
 TOTAL = t
-S01, STITLE, SCARD, S02A, S03, S04A, S04B, S05A, S05B = starts
+S01, STITLE, SCARD, S02A, S03, S04A, S04B, S05A, S05B, S06A, S06B, S06C = starts
 
 # (start, end, style, text). 03 times: scribe transcript minus the 2s trim.
 # 04A take2 / 05B: not transcribed (credits) - estimated from take1 / prompt timeline.
@@ -72,12 +77,36 @@ SUBS = [
     (S05B + 14.3, S05B + 17.0, "Line", "군관 천봉수입니다. 십 년을 모셨습니다."),
     (S05B + 18.2, S05B + 21.0, "Line", "열은 없으신데, 말씀이 영 이상하십니다."),
     (S05B + 21.1, S05B + 24.1, "Line", "적이 진을 쳤습니다. 성루로 가셔야 합니다."),
+    # 06A-06C: not transcribed (credits) - placed from speech-band envelope + prompt timeline.
+    (S06A + 0.6, S06A + 4.0, "Place", "이튿날 아침, 성루"),
+    (S06A + 1.8, S06A + 4.4, "Line", "적이 육천입니다. 아군은 팔백입니다."),
+    (S06A + 4.8, S06A + 6.6, "Line", "장군, 명을 내리소서."),
+    (S06A + 8.2, S06A + 10.8, "Line", "일단 회의부터 합시다."),
+    (S06A + 11.7, S06A + 14.7, "Line", "장군, 저희한테 '합시다'라니요."),
+    (S06A + 15.2, S06A + 17.3, "Line", "그리고 회의가 무엇입니까?"),
+    (S06A + 18.0, S06A + 19.8, "Line", "다 같이 앉아서 얘기하는 거예요."),
+    (S06A + 19.9, S06A + 23.2, "Line", "아니, …것이오. 것이다!"),
+    (S06B + 2.7, S06B + 4.6, "Line", "장군님 말씀이 왜 저러시나."),
+    (S06B + 5.5, S06B + 7.5, "Line", "어젯밤에 말에서 떨어지셨다던데."),
+    (S06B + 12.1, S06B + 15.0, "Line", "먼저 현황부터. 쌀이 얼마나 남았소?"),
+    (S06B + 15.8, S06B + 18.7, "Line", "삼백 석입니다. 넉 달은 버팁니다."),
+    (S06B + 20.3, S06B + 21.6, "Line", "장부 좀 봅시다."),
+    (S06C + 2.5, S06C + 6.5, "Line", "지난달에 이백 석이 들어왔는데, 나간 건 오십 석이네."),
+    (S06C + 7.5, S06C + 8.5, "Line", "그렇습니다."),
+    (S06C + 9.7, S06C + 13.9, "Line", "그 전에 남은 게 백오십 석. 합치면 삼백 석. 숫자는 맞소."),
+    (S06C + 14.5, S06C + 17.7, "Line", "그런데 받은 사람 수결이 석 달째 한 사람 글씨요."),
+    (S06C + 18.2, S06C + 21.9, "Line", "입고하는 사람하고 확인하는 사람이 같으면 안 되지. 창고 갑시다."),
+    (S06C + 22.0, S06C + 24.5, "Line", "지금 말입니까? 적이 코앞인데."),
+    (S06C + 25.0, S06C + 27.7, "Line", "그러니까 지금 세야지."),
 ]
 SFX = [  # (time, file, volume)
     (S01 + 20.9, "audio/sfx/gag_crickets.mp3", 0.9),
     (S03 + 19.95, "audio/sfx/gag_crickets.mp3", 0.8),
     (S05A + 27.4, "audio/sfx/gag_boing.mp3", 0.8),
     (S05B + 26.2, "audio/sfx/gag_boing.mp3", 0.9),
+    (S05A - 0.45, "audio/sfx/trans_whoosh.wav", 0.9),   # jump into Joseon (white flash)
+    (S05A - 0.05, "audio/sfx/trans_boom.wav", 0.9),
+    (S06A + 10.9, "audio/sfx/gag_crickets.mp3", 0.7),  # silence after "회의부터 합시다"
 ]
 BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/02_joseon_tension.mp3", S01, S01 + 25.0, 0.0, 0.30),
@@ -85,6 +114,8 @@ BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/04_modern_daily.mp3", S03, S03 + 28.0, 0.0, 0.18),
     ("audio/bgm/05_bittersweet.mp3", S04A, S04A + 23.0, 30.0, 0.22),
     ("audio/bgm/03_mansu_fumble.mp3", S05A + 5.0, S05B + 31.4, 0.0, 0.22),
+    ("audio/bgm/03_mansu_fumble.mp3", S06A + 0.5, S06B + 24.0, 60.0, 0.18),
+    ("audio/bgm/02_joseon_tension.mp3", S06C, S06C + 28.0, 40.0, 0.24),
 ]
 
 
@@ -122,22 +153,31 @@ def run(cmd):
 
 def main():
     norm = []
-    for i, (src, dur, off) in enumerate(SEGMENTS):
+    for i, (src, dur, off, fin, fout) in enumerate(SEGMENTS):
+        vf, af = [], []
+        if fin:
+            vf.append(f"fade=t=in:st=0:d={fin[1]}:c={fin[0]}")
+            af.append(f"afade=t=in:st=0:d={min(fin[1], 0.4)}")
+        if fout:
+            vf.append(f"fade=t=out:st={dur - fout[1]:.3f}:d={fout[1]}:c={fout[0]}")
+            af.append(f"afade=t=out:st={dur - min(fout[1], 0.4):.3f}:d={min(fout[1], 0.4)}")
+        vfx = ("," + ",".join(vf)) if vf else ""
+        afx = ("," + ",".join(af)) if af else ""
         out = os.path.join(TMP, f"seg{i}.mp4")
         if src == "CARD":
-            run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s=854x480:r=24:d={dur}",
+            run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s=854x480:r=24:d={dur}",
                  "-f", "lavfi", "-i", f"anullsrc=r=48000:cl=stereo", "-t", str(dur),
                  "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", out])
         else:
-            run(["ffmpeg", "-v", "error", "-y", "-ss", str(off), "-i", R(src), "-vf", "scale=854:480,fps=24,setsar=1",
-                 "-af", "aresample=48000,aformat=channel_layouts=stereo", "-t", str(dur),
+            run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", str(off), "-i", R(src), "-vf", "scale=854:480,fps=24,setsar=1" + vfx,
+                 "-af", "aresample=48000,aformat=channel_layouts=stereo" + afx, "-t", str(dur),
                  "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-c:a", "aac", "-b:a", "192k", out])
         norm.append(out)
     lst = os.path.join(TMP, "list.txt")
     with open(lst, "w") as f:
         f.writelines(f"file '{p}'\n" for p in norm)
     base = os.path.join(TMP, "base.mp4")
-    run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", base])
+    run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", base])
 
     ass = os.path.join(TMP, "subs.ass")
     write_ass(ass)
@@ -164,8 +204,8 @@ def main():
         n += 1
     fc.append("".join(mix) + f"amix=inputs={len(mix)}:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11,volume=2.4dB,alimiter=limit=0.84:level=false[aout]")
     fc.append(f"[0:v]ass={ass}[vout]")
-    out = R("renders/ep01/ep01_roughcut_v2.mp4")
-    run(["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[vout]", "-map", "[aout]",
+    out = R("renders/ep01/ep01_roughcut_v3.mp4")
+    run(["ffmpeg", "-nostdin", "-v", "error", "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[vout]", "-map", "[aout]",
          "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", out])
     print(f"{out} ({TOTAL:.1f}s)")
 
