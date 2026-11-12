@@ -14,7 +14,7 @@ os.makedirs(TMP, exist_ok=True)
 R = lambda p: os.path.join(ROOT, p)  # noqa: E731
 
 SEGMENTS = [  # (file, duration, start offset in source)
-    ("renders/ep01/clip01_take1_vo_fix.mp4", 25.056, 0),
+    ("renders/ep01/clip01_take1_vo.mp4", 25.056, 0),
     ("assets/title/title_sequence_480p.mp4", 6.042, 0),
     ("CARD", 2.0, 0),
     ("renders/ep01/clip02a_take2.mp4", 25.056, 0),
@@ -22,7 +22,7 @@ SEGMENTS = [  # (file, duration, start offset in source)
     ("renders/ep01/clip04a_take2.mp4", 23.0, 0),
     ("renders/ep01/clip04b_take2.mp4", 10.0, 0),
     ("renders/ep01/clip05a_take1.mp4", 30.08, 0),
-    ("renders/ep01/clip05b_combined_fix.mp4", 31.48, 0),
+    ("renders/ep01/clip05b_combined.mp4", 31.48, 0),
 ]
 starts, t = [], 0.0
 for _, d, _o in SEGMENTS:
