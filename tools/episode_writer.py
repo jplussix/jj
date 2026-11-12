@@ -79,15 +79,16 @@ def _post(model, messages, max_tokens):
         return json.loads(r.read().decode("utf-8"))
 
 
-def call_gemini(model, messages, max_tokens):
-    """Call Gemini; retry 503/429-rate with backoff, then fall back to other models.
+def call_gemini(model, messages, max_tokens, allow_fallback=False):
+    """Call Gemini; retry 503/429-rate with backoff; other models only with allow_fallback.
 
     A free-tier quota of 0 for a model (paid-only model) skips straight to the fallback.
     Returns (text, finish_reason, usage) and records the model actually used in usage.
     """
     import time
     import urllib.error
-    for m in [model] + [f for f in FALLBACK if f != model]:
+    models = [model] + ([f for f in FALLBACK if f != model] if allow_fallback else [])
+    for m in models:
         for attempt in range(4):
             try:
                 data = _post(m, messages, max_tokens)
@@ -97,7 +98,7 @@ def call_gemini(model, messages, max_tokens):
             except urllib.error.HTTPError as e:
                 msg = e.read().decode("utf-8", "replace")
                 if e.code == 429 and "limit: 0" in msg:
-                    print(f"  {m}: not available on this key's tier, trying next model", flush=True)
+                    print(f"  {m}: this key's tier has no quota for this model (link billing in AI Studio)", flush=True)
                     break
                 if e.code in (429, 500, 503) and attempt < 3:
                     wait = 20 * (attempt + 1)
@@ -106,7 +107,7 @@ def call_gemini(model, messages, max_tokens):
                     continue
                 print(f"  {m}: HTTP {e.code}: {msg[:200]}", flush=True)
                 break
-    raise RuntimeError("all Gemini models failed")
+    raise RuntimeError(f"Gemini call failed for {models}")
 
 
 def split_files(text):
@@ -123,7 +124,8 @@ def split_files(text):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--episode", type=int, required=True)
-    ap.add_argument("--model", default="gemini-pro-latest")
+    ap.add_argument("--model", default="gemini-4-argon")
+    ap.add_argument("--allow-fallback", action="store_true", help="use Flash models if the main model is unavailable")
     ap.add_argument("--max-rounds", type=int, default=3)
     ap.add_argument("--max-tokens", type=int, default=60000)
     ap.add_argument("--validate-only", action="store_true")
@@ -149,7 +151,7 @@ def main():
     rep = None
     for rnd in range(1, a.max_rounds + 1):
         print(f"[round {rnd}] calling {a.model} ...", flush=True)
-        text, finish, usage = call_gemini(a.model, messages, a.max_tokens)
+        text, finish, usage = call_gemini(a.model, messages, a.max_tokens, a.allow_fallback)
         with open(os.path.join(outdir, f"gemini_raw_round{rnd}.md"), "w", encoding="utf-8") as f:
             f.write(text)
         files = split_files(text)

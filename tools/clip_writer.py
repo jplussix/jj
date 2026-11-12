@@ -76,7 +76,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--episode", type=int, required=True)
     ap.add_argument("--clips", nargs="+", required=True)
-    ap.add_argument("--model", default="gemini-pro-latest")
+    ap.add_argument("--model", default="gemini-4-argon")
+    ap.add_argument("--allow-fallback", action="store_true", help="use Flash models if the main model is unavailable")
     ap.add_argument("--max-rounds", type=int, default=3)
     ap.add_argument("--with-chat", action="store_true", help="append the user<->Claude chat log")
     ap.add_argument("--note", default="", help="extra instruction for this run")
@@ -122,7 +123,7 @@ def main():
     rep, new = None, {}
     for rnd in range(1, a.max_rounds + 1):
         print(f"[round {rnd}] {a.model} ...", flush=True)
-        text, finish, usage = call_gemini(a.model, messages, 30000)
+        text, finish, usage = call_gemini(a.model, messages, 30000, a.allow_fallback)
         with open(os.path.join(gdir, f"{stamp}_round{rnd}.md"), "w", encoding="utf-8") as f:
             f.write(text)
         new = parse_clips(text)
