@@ -12,7 +12,6 @@
 |---|---|---|---|---|---|
 | 01 | 1 | 성루, 밤 | 25초 | 한이겸, 천봉수, 군관들 | **테이크 1 생성** (`renders/ep01/clip01_take1.mp4`, job `4d3ee2e8-badf-4db8-894d-62148c119344`). 받아쓰기: "적이 육천입니다. 아군은 팔백입니다." 9초, "장정(장군?), 명을 내리소서." 15초. 한이겸이 시트의 철릭 대신 전신 찰갑을 입고 나옴(채택, 06A도 같은 갑옷). 속마음 3줄 합본: `renders/ep01/clip01_take1_vo.mp4` (1.5초 "여기 어디야…", 12초 "육천? 팔백? 재고 얘긴가", 18초 "장군? 나한테 하는 소리야?") |
 | 02A | 2 | 물류센터 사무실 | 25초 | 박만수, 최 상무 | 프롬프트 완료 |
-| 02B | 2 | 물류센터 창고 | 15초 | 박만수, 지게차 기사 | 프롬프트 완료 |
 | 03 | 3 | 관리사무소 | 30초 | 박만수, 관리소장 | 프롬프트 완료 |
 | 04 | 4 | 거실, 밤 | 30초 | 박만수, 정숙, 하은 | 프롬프트 완료 |
 | 05A | 5 | 군막 | 30초 | 한이겸 | **생성 완료** |
@@ -104,49 +103,19 @@ A quiet office scene in a modern workplace: a fifty-four-year-old warehouse mana
 Park Mansu corresponds to @Image 1 and wears a locker key on a cord around his neck in addition to his clothing. Executive Choi corresponds to @Image 2. The two sit facing each other across the office desk in front of the interior glass wall, with Park Mansu on the left and Executive Choi on the right. On the desk between them lie a single printed resignation document and a ballpoint pen. Beyond the glass wall behind them, forklifts move back and forth along the warehouse aisles.
 
 [Event Script]
-Stage 1 - The plea: Opening state: forklifts pass beyond the glass wall while Park Mansu sits looking down at the document and ballpoint pen on the desk and Executive Choi sits across from him. Executive Choi says in Korean, {부장님, 저도 마음이 안 좋습니다.} Park Mansu raises his eyes to Executive Choi and says earnestly in Korean, {상무님. 우리 애 취직할 때까지만요. 일 년만.} End state: Park Mansu leans slightly forward across the desk, looking at Executive Choi.
+Stage 1 - The plea: Opening state: forklifts pass beyond the glass wall while Park Mansu sits looking down at the document and ballpoint pen on the desk and Executive Choi sits across from him. Executive Choi hesitates over the form of address and says in Korean, {부장님… 아니, 선배님. 저도 마음이 안 좋습니다.} Park Mansu raises his eyes to Executive Choi and begins to speak; as he slips into calling him by his old rank of Assistant Manager Choi, Park Mansu pauses abruptly and winces to correct himself while Executive Choi stiffens with an awkward, strained expression, and Park Mansu pleads earnestly in Korean, {최 대리… 아, 상무님. 우리 애 취직할 때까지만요. 일 년만.} End state: Park Mansu leans slightly forward across the desk, looking at Executive Choi, whose face remains tense and awkward.
 Stage 2 - The hesitation: Executive Choi answers calmly in Korean, {본사 결재가 어제 끝났어요.} Park Mansu lowers his gaze, picks up the ballpoint pen, sets it back down on the desk, and picks it up again. End state: Park Mansu holds the pen still above the signature line of the document.
 Stage 3 - Twenty-seven years: Looking down at the paper, Park Mansu says quietly in Korean, {제가 여기서 이십칠 년입니다.} Executive Choi replies evenly in Korean, {그래서 위로금도 넉넉히 넣었습니다.} End state: Park Mansu presses his lips together and lowers the tip of the pen to the paper.
 Stage 4 - The signature and key: Park Mansu signs his name on the document, lifts the locker key cord over his head, and places the key on top of the signed paper. End state: a close shot holds still on the signed document with the locker key resting on top of it as Park Mansu's hand pulls back.
 
 [Visual and Camera Treatment]
-Stage 1 opens on a medium two-shot from the side across the desk at eye level, with the glass wall and moving forklifts visible in the background. Stage 2 cuts to a medium close-up on Park Mansu and his hand picking up and setting down the pen. Stage 3 alternates between medium close-ups of Park Mansu and Executive Choi over each shoulder. Stage 4 tilts down to a close-up of the document and locker key on the desk. Cool fluorescent ceiling light overhead mixes with soft daylight coming from the warehouse floor through the glass wall behind them.
+Stage 1 opens on a medium two-shot from the side across the desk at eye level, with the glass wall and moving forklifts visible in the background, and cuts to medium close-ups showing Park Mansu faltering as he corrects the title and Executive Choi's awkward expression. Stage 2 cuts to a medium close-up on Park Mansu and his hand picking up and setting down the pen. Stage 3 alternates between medium close-ups of Park Mansu and Executive Choi over each shoulder. Stage 4 tilts down to a close-up of the document and locker key on the desk. Cool fluorescent ceiling light overhead mixes with soft daylight coming from the warehouse floor through the glass wall behind them.
 
 [Audio]
 <faint hum of forklifts beyond the glass>, <pen clicking against the desk>, <pen scratching on paper>, <metal locker key clinking softly on paper>. Park Mansu speaks Korean in a warm, slightly husky baritone of a man in his fifties, speaking slowly and politely. Executive Choi speaks Korean in a polished, smooth, businesslike voice of a man in his late forties.
 
 [Maintain Consistency]
 Keep Park Mansu's and Executive Choi's faces and clothing identical to their references; keep Park Mansu on the left of the desk, Executive Choi on the right, and the glass wall to the warehouse behind them.
-```
-
-## 클립 02B — 물류센터 창고, 낮 (15초)
-
-**참조**: 1 박만수 시트, 2 물류센터 창고
-
-```
-[Generation Goal]
-A bittersweet workplace farewell in a modern logistics warehouse: carrying his box of personal belongings toward the exit, the departing manager stops to give one last traffic instruction to a forklift driver and watches until the aisle is clear before walking out.
-
-[Reference Material Roles]
-@Image 1 defines Park Mansu's face, hairstyle, build and clothing. Do not use the grey background or the panel layout.
-@Image 2 defines the logistics center warehouse interior with tall storage racks, yellow floor lines marked with aisle numbers 3 and 5, stacked wooden pallets, and the warehouse exit door. @Image 2 is a style reference only, not a fixed keyframe.
-
-[Subjects and Relationships]
-Park Mansu corresponds to @Image 1 and carries a small cardboard box of personal belongings in both arms against his chest. He walks along the main walkway toward the warehouse exit door in the background. Ahead of him to the right, a yellow forklift driven by a male warehouse worker in a safety helmet and work vest approaches the floor line marked 3, lowering a loaded wooden pallet into the aisle.
-
-[Event Script]
-Stage 1 - Stopping in the aisle: Opening state: Park Mansu walks across the warehouse floor holding the cardboard box in both arms while the forklift ahead lowers a wooden pallet toward the floor right on aisle line 3. Park Mansu stops in his tracks and looks at the pallet position. End state: Park Mansu stands still in the walkway facing the forklift.
-Stage 2 - The last direction: Park Mansu calls out toward the forklift in Korean, {어이, 거기 내리면 삼 번 라인 막혀. 오 번 뒤로 빼.} Inside the cab, the forklift driver turns his head toward Park Mansu, nods respectfully, and replies in Korean, {아, 네! 부장님!} End state: the forklift raises the forks slightly and begins to back away from aisle line 3.
-Stage 3 - Watching and leaving: The forklift turns and moves the pallet back toward aisle line 5. Park Mansu stands watching until the forklift clears the passage, then turns toward the exit door and walks out of the warehouse. End state: Park Mansu steps through the open doorway holding his cardboard box, held still in the frame.
-
-[Visual and Camera Treatment]
-Stage 1 tracks backward in a medium-full shot in front of Park Mansu at eye level, then pans slightly to show the forklift lowering the pallet onto the floor line marked 3. Stage 2 holds on a medium shot of Park Mansu calling out, with the forklift cab visible across the aisle at medium distance so the driver's face stays secondary. Stage 3 follows Park Mansu from behind at waist height as he watches the forklift clear aisle 3 and walks out through the exit door. Bright overhead industrial bay lights illuminate the warehouse floor, with natural daylight spilling in through the open exit door at the end of the walkway.
-
-[Audio]
-<steady footsteps on concrete>, <forklift engine rumbling>, <hydraulic lift whining>, <backup beep as the forklift changes direction>. Park Mansu speaks Korean in a warm, slightly husky baritone of a man in his fifties, speaking slowly and politely, but raising his voice firmly across the warehouse floor. The forklift driver speaks Korean in a brisk, respectful voice of a man in his thirties.
-
-[Maintain Consistency]
-Keep Park Mansu's face and clothing identical to his reference; keep the cardboard box in his arms, the numbered floor lines 3 and 5 visible on the concrete floor, and the exit door at the end of the walkway.
 ```
 
 ## 클립 03 — 관리사무소 (30초)
