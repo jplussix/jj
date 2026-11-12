@@ -14,3 +14,6 @@
 
 | 06B take1 (24초, 72크레딧) | `278005e4-bb5d-4ca3-be28-c7bec29b4999` | `renders/ep01/clip06b_take1.mp4`. 군관 둘 귓속말 → 한이겸 시선 → 동시에 허리 펴기 성공, 조윤 미소, 장부 밀어주기. 처음·끝 컷이 넓어 얼굴이 작음 |
 | 06C take1 (28초, 84크레딧, 사용자 "다음 작업 시작") | `36d99bb6-9fd7-4cd1-a254-7218efb906e9` | `renders/ep01/clip06c_take1.mp4`. 장부 짚기, 천봉수 놀람, 일어서기 OK. 9~13초·18~23초가 먼 와이드(얼굴 작음), 조윤 주먹 클로즈업이 안 나옴 |
+
+## 06B 보정 (소리 참조 방식)
+군관1 "장군님 말씀이 왜 저러시나."를 eleven_v4(Kyung Hoon)로 만들고 시댄스 audio_references로 넣어 4초 재생성(`review/audio_ref_test/officer1_test.mp4`, 12크레딧). 06B 2.0~4.75초 컷을 그 0.6~3.35초로 교체 → `renders/ep01/clip06b_fixed.mp4`. 앞뒤 모두 컷 전환 지점이라 이음매 없음.

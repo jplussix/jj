@@ -21,6 +21,15 @@ character-consistency 스킬의 Character Brief 형식. 각 인물의 **IDENTITY
 
 ---
 
+## 고정 목소리 (일레븐랩스 eleven_v4, 대사 소리 참조용)
+
+| 인물 | 목소리 | voice_id | 상태 |
+|---|---|---|---|
+| 박만수(현대·속마음) | 박만수 후보1 | `xikVJWJpydm4MXCV89Y2` | 확정 |
+| 천봉수 | Deok - Energetic Korean Narrator | `wisKdlUQEBMjkKqNAa3c` | 확정 (정면 립싱크 테스트 통과) |
+| 군관1(마른 30대) | Kyung Hoon - Calm & Natural | `JsyP5NIpAZhfPw5mwSP0` | 사용 중 |
+| 한이겸·조윤·군관2·정숙·하은·관리소장·최 상무·김종서 | — | — | 미정 |
+
 ## 박만수 (현대)
 
 - **확정 시트**: `docs/sheets/parkmansu.png` (힉스필드 job `98e0a6a0-cb83-4572-8339-67c05035e377`). 기준 얼굴 job `57e4fe0c-9bcc-4f95-8a49-28543487c4b7`.
