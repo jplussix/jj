@@ -122,7 +122,11 @@
 [Event Script]
 정수 초 타임라인. 빈틈 없이 이어서 클립 길이에 맞춘다(30초 클립이면 0-3s ... 28-30s).
 - 구간마다: 샷 크기 + 한 가지 동작 + (있으면) 대사 한 줄.
-- 대사: "At <초>s he says in Seoul-accented Korean, <말투>: {대사}" — 한 구간에 한 사람만 말하고, 그 구간은 말하는 사람을 잡는다(투샷에서 주고받기 금지: 입이 엉뚱한 사람에게 붙는다).
+- 대사: `At <초>s he says (speaking in Korean <속도·발음>; <감정과 상황을 구체적으로>): "대사"` — 한 구간에 한 사람만 말하고, 그 구간은 말하는 사람을 잡는다(투샷에서 주고받기 금지: 입이 엉뚱한 사람에게 붙는다).
+  - 괄호 안에 `in Korean`과 함께 **감정·말투를 구체적으로** 쓴다. "tense tone"처럼 한 단어로 끝내지 말고 누가 어떤 상황에서 어떤 마음으로 말하는지까지. 예: `(speaking in Korean at a natural pace with clear, crisp pronunciation; exasperated but affectionate, the familiar nagging of a long-married wife)`.
+  - 발음이 뭉개지지 않게 `clear, crisp pronunciation`을 넣고, **대사 길이에 시간을 넉넉히** 준다: 1초에 4음절 이하. 긴 대사는 두 구간으로 나눈다.
+  - 대사는 큰따옴표 `"…"`로 감싼다.
+  - [Visual and Camera Treatment]에 "All Korean dialogue is pronounced clearly at a natural speaking pace, never mumbled or rushed."를 넣는다.
 - 첫 대사 앞에 2~3초 동작만 있는 구간을 둔다.
 - 앞 구간이 끝난 상태에서 다음 구간을 시작한다. 반응보다 원인을 먼저 쓴다.
 - 인물 동작에 slowly / gently / quietly를 쓰지 않는다(슬로모션이 된다). 느린 건 카메라에만.
