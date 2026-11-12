@@ -109,3 +109,43 @@ Jeongsuk, an original 52-year-old Korean woman, 162 cm, slim and well-kept figur
 ```
 Haeun, an original 27-year-old Korean woman, 163 cm, slim build. Oval face with mature adult bone structure, a defined jawline and cheekbones, not a babyface. Dark brown double-lidded eyes with a flat, tired, indifferent look, faint dark circles under the eyes, naturally muted catchlights. Natural straight dark eyebrows. One small dark mole just above the right side of the upper lip. Matte skin with visible fine texture and minimal makeup. Long straight black hair worn loose with a center part, falling past the shoulders. Wearing an oversized heather grey hoodie, black jogger pants, white canvas sneakers, and small silver stud earrings.
 ```
+
+---
+
+## 최 상무 (현대, 박만수의 옛 부하)
+
+- **확정 시트**: `docs/sheets/choi.png` (힉스필드 job `059450e6-1190-4951-8559-641bb0c48d51`).
+- **나이/체격**: 48세 한국 남성, 178cm. 마르고 단정함.
+- **알아보는 표시**: 무테안경, 날카로운 옆 가르마.
+- **목소리**: `a polished, smooth, businesslike voice of a man in his late forties`
+
+**IDENTITY**
+```
+Executive Choi, an original 48-year-old Korean man, 178 cm, slim and well-groomed. Narrow oval face with a smooth jaw, clean-shaven, light even skin with fine natural texture. Thin rimless glasses over calm dark brown eyes, neat straight eyebrows. Short black hair with a sharp side part, neatly gelled. Wearing a fitted charcoal navy suit, a white shirt, a muted dark blue silk tie, black leather oxford shoes and a slim silver wristwatch.
+```
+
+## 관리소장 (현대)
+
+- **확정 시트**: `docs/sheets/manager.png` (힉스필드 job `694d2811-b832-4af3-883a-55d6ad5c4c90`).
+- **나이/체격**: 63세 한국 남성, 168cm. 마르고 등이 약간 굽음.
+- **알아보는 표시**: 코끝에 걸친 검은 뿔테 돋보기, 남색 누빔 조끼의 이름표.
+- **목소리**: `a dry, slow, raspy voice of a man in his sixties`
+
+**IDENTITY**
+```
+The Office Manager, an original 63-year-old Korean man, 168 cm, thin and slightly stooped. Long weathered face with deep forehead wrinkles and hollow cheeks, grey stubble. Small tired dark eyes, bushy grey eyebrows, thick black-framed reading glasses resting low on his nose. Thinning grey hair combed over to one side. Wearing a navy blue quilted work vest with a small name tag over a beige checked flannel shirt, grey work trousers and worn brown slip-on shoes.
+```
+
+## 김종서 (조선, 실존 인물 · 2화부터)
+
+- **확정 시트**: 아직 없음. 2화 생성 전에 만든다.
+- **위치**: 함길도 도절제사. 한이겸의 직속 상관. 별명 대호(大虎).
+- **나이/체격**: 51세. 키는 한이겸보다 작지만(약 172cm) 어깨가 넓고 꼿꼿하다. 실존 초상이 없으므로 위엄 있는 50대 무장으로 새로 만든다.
+- **표현 원칙**: 개그의 대상이 되지 않는다. 품위와 위엄을 지킨다. 웃음은 그를 대하는 박만수와 군관들 쪽에서 나온다.
+- **목소리**: `a deep, calm, commanding voice of a man in his fifties, few words, never raised`
+- **키 문장**: `The top of Kim Jongseo's head reaches Han Igyeom's mouth.` (172 / 185)
+
+**IDENTITY**
+```
+Kim Jongseo, a dignified 51-year-old Korean military commander of the early Joseon dynasty, 172 cm, broad-shouldered and upright with a powerful, compact build. Square, weathered face with a strong jaw and deep lines at the eyes and forehead. Sharp, piercing dark eyes under thick black eyebrows streaked with grey, a calm, unsmiling mouth. A neatly trimmed black beard and mustache streaked with grey. Black hair with grey at the temples tied in a topknot under a black horsehair gat with a red tassel cord. Wearing a deep crimson cheollik commander's robe with a black leather lamellar vest edged in brass, a wide black belt with a jade-ornamented buckle, black leather boots, and a sheathed long sword at his left hip.
+```
