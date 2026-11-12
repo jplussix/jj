@@ -124,29 +124,30 @@ Keep Park Mansu's and Executive Choi's faces and clothing identical to their ref
 
 ```
 [Generation Goal]
-A dry comic job interview: a laid-off manager in his fifties applies to be an apartment security guard.
+A dry comic job interview in an apartment management office: a laid-off warehouse manager in his fifties applies for a security guard position, states inventory inspection as his specialty, and is assigned to sort a mountain of recycling boxes and work the night shift.
 
 [Reference Material Roles]
 @Image 1 defines Park Mansu's face, hairstyle, build and clothing. Do not use the grey background or the panel layout.
 @Image 2 defines the Office Manager's face, hairstyle, build and clothing. Do not use the grey background or the panel layout.
-@Image 3 defines the cramped apartment management office with a duty roster on the wall and a window. @Image 3 is a style reference only, not a fixed keyframe.
+@Image 3 defines the cramped apartment management office with a duty roster on the wall, an office desk, chairs, and a window overlooking the outdoor recycling area. @Image 3 is a style reference only, not a fixed keyframe.
 
 [Subjects and Relationships]
-Park Mansu corresponds to @Image 1; the Office Manager corresponds to @Image 2 and wears reading glasses low on his nose. The Office Manager sits behind a cluttered desk holding a résumé; Park Mansu sits upright on a folding chair across from him, both hands on his knees. The window behind the desk looks out on a recycling area piled high with cardboard boxes.
+Park Mansu corresponds to @Image 1 in his work jacket; the Office Manager corresponds to @Image 2 and wears reading glasses low on his nose. Inside the cramped office with a security duty roster posted on the wall, the Office Manager sits behind a cluttered desk on the right holding a printed résumé, while Park Mansu sits upright on a chair across the desk on the left with both hands resting on his knees. Behind the desk, the window looks out on a recycling area where cardboard boxes are piled high like a mountain.
 
 [Event Script]
-Stage 1 - Age: The Office Manager reads over his glasses and says in Korean, {쉰넷. 나이가 좀 많으시네.} Park Mansu answers in Korean, {체력은 자신 있습니다.} End state: the Office Manager keeps reading.
-Stage 2 - Experience: The Office Manager says in Korean, {물류센터 부장을 하셨네. 경비 일은 해 보셨어요?} Park Mansu says in Korean, {아니요.} The Office Manager asks in Korean, {그럼 특기가 뭡니까?} Park Mansu answers with full seriousness in Korean, {재고 조사입니다.} End state: the Office Manager slowly lowers his glasses and looks at him.
-Stage 3 - Hired: The Office Manager repeats flatly in Korean, {재고 조사.} Park Mansu says earnestly in Korean, {숫자하고 물건이 안 맞으면 잠이 안 옵니다.} The Office Manager points out the window at the mountain of boxes and says in Korean, {저거나 좀 맞춰 봐요. 내일부터 야간입니다.} Park Mansu stands and bows deeply from the waist. End state: hold on the deep bow.
+Stage 1 - Age and experience: Opening state: the Office Manager looks over his reading glasses at the résumé in his hand while Park Mansu sits upright across the desk with both hands on his knees. The Office Manager says in Korean, {쉰넷. 나이가 좀 많으시네.} Park Mansu answers firmly in Korean, {체력은 자신 있습니다.} Looking at the résumé again, the Office Manager asks in Korean, {물류센터 부장을 하셨네. 경비 일은 해 보셨어요?} Park Mansu politely shakes his head from side to side. End state: Park Mansu sits still with his hands on his knees while the Office Manager looks at him over his glasses.
+Stage 2 - Specialty: The Office Manager asks in Korean, {그럼 특기가 뭡니까?} Park Mansu answers with full seriousness in Korean, {재고 조사입니다.} The Office Manager slowly lowers his reading glasses with one hand and stares straight at Park Mansu. End state: the Office Manager holds his glasses lowered, gazing squarely at Park Mansu's earnest face.
+Stage 3 - Obsession with numbers: Studying Park Mansu, the Office Manager repeats flatly in Korean, {재고 조사.} Park Mansu replies earnestly in Korean, {숫자하고 물건이 안 맞으면 잠이 안 옵니다.} End state: Park Mansu maintains his earnest upright posture while the Office Manager shifts his gaze toward the window behind the desk.
+Stage 4 - Mountain of boxes and night shift: The Office Manager points toward the window at the mountain of cardboard boxes piled up in the recycling area outside and says in Korean, {저거나 좀 맞춰 봐요. 내일부터 야간입니다.} Park Mansu rises from his chair and bows deeply from the waist toward the Office Manager. End state: hold still on Park Mansu bent in a deep bow beside the desk as the Office Manager watches him.
 
 [Visual and Camera Treatment]
-Mostly a static two-shot from the side of the desk at eye level, cutting to a close-up of the Office Manager lowering his glasses in Stage 2 and to the window view of the boxes in Stage 3. Warm afternoon window light, a dim fluorescent tube overhead.
+Stage 1 opens on a medium two-shot across the desk at eye level with both men's faces large and clearly recognizable, then cuts between a medium close-up of the Office Manager reading over his glasses and a medium close-up of Park Mansu shaking his head. Stage 2 uses over-the-shoulder medium close-ups on Park Mansu's serious face and on the Office Manager's face as he lowers his reading glasses. Stage 3 alternates between medium close-ups of the Office Manager and Park Mansu across the desk. Stage 4 frames the Office Manager in a medium close-up pointing toward the window with the mountain of cardboard boxes visible outside behind him, then pulls back slightly to a medium shot of Park Mansu bowing deeply from the waist in front of the desk. Warm afternoon daylight from the window behind the desk mixes with pale fluorescent light from the ceiling fixture overhead.
 
 [Audio]
-<a small desk fan humming>, <paper rustling>. Park Mansu speaks Korean in a warm, slightly husky baritone of a man in his fifties, speaking slowly and politely. The Office Manager speaks Korean in a dry, slow, raspy voice of a man in his sixties.
+<a small desk fan humming>, <paper rustling>, <chair and jacket fabric rustling as Park Mansu stands and bows>. Park Mansu speaks Korean in a warm, slightly husky baritone of a man in his fifties, speaking slowly and politely. The Office Manager speaks Korean in a dry, slow, raspy voice of a man in his sixties.
 
 [Maintain Consistency]
-Keep both faces and clothing identical to their references; keep the Office Manager behind the desk and Park Mansu on the chair throughout.
+Keep Park Mansu's and the Office Manager's faces and clothing identical to their references; keep Park Mansu on the left of the desk, the Office Manager behind the desk on the right with his face clearly visible in medium framing, and the window overlooking the mountain of cardboard boxes behind the desk.
 ```
 
 ## 클립 04 — 거실, 밤 (30초)
