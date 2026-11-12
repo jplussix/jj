@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Episode 1 rough cut: join finished clips, burn subtitles, add BGM (ducked) and gag SFX.
 
-Order: 01 -> title -> "열여덟 시간 전" -> 02A -> 03 -> 04A -> 04B -> 05A -> 05B -> 06A -> 06B -> 06C -> 07A -> 07B.
+Order: 01 -> title -> "열여덟 시간 전" -> 02A -> 03 -> 04A -> 04B -> 05A -> 05B -> 06A -> 06B -> 06C -> 07A -> 07B -> 07C -> 07D -> 07D2 -> 07E -> 07F -> 07G -> 07H -> 08A -> 08B.
 Transitions are per-segment fades (no overlap, so subtitle times stay simple):
 black dips between scenes, a white flash + whoosh/boom for the jump into Joseon.
 Subtitle times come from the ElevenLabs transcripts of each clip (word timestamps).
@@ -30,14 +30,30 @@ SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs),
     ("renders/ep01/clip06c_take1.mp4", 28.05, 0, None, ("black", 0.5)),
     ("renders/ep01/clip07a_take1.mp4", 26.0, 0, ("black", 0.5), None),  # cut before the over-acted laugh
     ("renders/ep01/clip07a_laugh_fix.mp4", 4.0, 0, None, ("black", 0.25)),  # restrained laugh re-shoot
-    ("renders/ep01/clip07b_combined.mp4", 24.45, 0, ("black", 0.25), ("black", 1.2)),  # take1 0-18.375 + dry-face ending
+    ("renders/ep01/clip07b_combined.mp4", 24.45, 0, ("black", 0.25), None),  # take1 0-18.375 + dry-face ending
+    ("renders/ep01/clip07c_fix.mp4", None, 0, None, None),      # "장강님" cut out
+    ("renders/ep01/clip07d_fix.mp4", None, 0, None, None),      # "장장님" cut out
+    ("renders/ep01/clip07d2_take1.mp4", None, 0, None, ("black", 0.4)),
+    ("renders/ep01/clip07e_fix.mp4", None, 0, ("black", 0.4), None),  # "장강님" cut out
+    ("renders/ep01/clip07f_combined.mp4", None, 0, None, None),  # gate-opening shot dropped (bar stayed on)
+    ("renders/ep01/clip07g_take1.mp4", None, 0, None, None),
+    ("renders/ep01/clip07h_take1.mp4", None, 0, None, ("white", 0.45)),
+    ("renders/ep01/clip08a_take1.mp4", None, 0, ("white", 0.9), ("black", 0.3)),
+    ("renders/ep01/clip08b_take1.mp4", None, 0, ("black", 0.3), ("black", 1.5)),
 ]
+def _dur(path):
+    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", R(path)],
+                         capture_output=True, text=True).stdout
+    return round(float(out) - 0.05, 3)
+
+
+SEGMENTS = [(f, d if d is not None else _dur(f), o, fi, fo) for f, d, o, fi, fo in SEGMENTS]
 starts, t = [], 0.0
 for seg in SEGMENTS:
     starts.append(t)
     t += seg[1]
 TOTAL = t
-S01, STITLE, SCARD, S02A, S03, S04A, S04B, S05A, S05B, S06A, S06B, S06C, S07A, S07AL, S07B = starts
+S01, STITLE, SCARD, S02A, S03, S04A, S04B, S05A, S05B, S06A, S06B, S06C, S07A, S07AL, S07B, S07C, S07D, S07D2, S07E, S07F, S07G, S07H, S08A, S08B = starts
 
 # (start, end, style, text). 03 times: scribe transcript minus the 2s trim.
 # 04A take2 / 05B: not transcribed (credits) - estimated from take1 / prompt timeline.
@@ -122,6 +138,50 @@ SUBS = [
     (S07B + 12.95, S07B + 14.8, "Line", "(밖에서) 도절제사 영감이시다!"),
     (S07B + 15.2, S07B + 18.2, "Line", "장군님, 대호께서 오셨습니다. 하필 오늘."),
     (S07B + 20.75, S07B + 22.3, "Line", "본사 감사가 왜 하필 지금."),
+    # 07C-08B: times from local Whisper (tools/transcribe.py), text from the script.
+    (S07C + 1.4, S07C + 4.75, "Line", "빈 가마니에 짚을 채워 앞줄만 다시 메워라."),
+    (S07C + 5.2, S07C + 6.2, "Line", "어서."),
+    (S07C + 7.4, S07C + 9.3, "Line", "손대지 마시오."),
+    (S07C + 10.45, S07C + 12.1, "Line", "도절제사 영감이십니다."),
+    (S07C + 12.3, S07C + 13.8, "Line", "빈자리를 보이면 끝장입니다."),
+    (S07C + 14.8, S07C + 18.1, "Line", "빈자리를 가짜로 채우면 그건 사기요."),
+    (S07C + 18.5, S07C + 22.3, "Inner", "(속마음) 감사 나왔는데 분식회계를 하라고? 걸리면 내가 독박이지."),
+    (S07D + 2.3, S07D + 6.05, "Line", "달마다 올린 군량 보고서에 장군님 직인도 찍혀 있습니다."),
+    (S07D + 7.6, S07D + 10.85, "Line", "백여든 석이 비면 소인만 죽는 게 아닙니다."),
+    (S07D + 11.1, S07D + 13.1, "Line", "전시 군량 축내는 건 참수입니다."),
+    (S07D + 13.6, S07D + 14.6, "Line", "일단 덮으시지요."),
+    (S07D2 + 1.9, S07D2 + 4.05, "Line", "숨기다 걸리면 가중처벌이오."),
+    (S07D2 + 5.0, S07D2 + 6.4, "Line", "자진 신고부터 해야지."),
+    (S07D2 + 7.5, S07D2 + 9.3, "Line", "자진… 뭐, 뭐라 하셨습니까?"),
+    (S07D2 + 11.85, S07D2 + 13.05, "Line", "창고 문 활짝 열어 두시오."),
+    (S07D2 + 13.7, S07D2 + 15.1, "Line", "내가 직접 브리핑하겠소."),
+    (S07D2 + 15.5, S07D2 + 16.4, "Line", "아니, 고하겠소!"),
+    (S07E + 0.5, S07E + 3.3, "Place", "성문 안 마당"),
+    (S07E + 0.4, S07E + 3.3, "Inner", "(속마음) 김종서면 교과서에 나오는 그 북방의 대호 맞지."),
+    (S07E + 3.5, S07E + 10.0, "Line", "영감께서 눈을 마주치시면 무조건 죽여 달라고 하십시오."),
+    (S07E + 10.8, S07E + 12.8, "Line", "일하러 온 사람한테 왜 죽여 달라고 해요?"),
+    (S07E + 13.6, S07E + 14.3, "Line", "아니, 하느냐."),
+    (S07E + 14.4, S07E + 21.9, "Line", "지난달에 옆 진 첨절제사는 장부 한 줄 틀렸다고 곤장 스무 대에 파직당했습니다."),
+    (S07E + 22.2, S07E + 25.8, "Inner", "(속마음) 한 줄에 곤장 스무 대? 여긴 백여든 석이 비는데."),
+    (S07F + 3.4, S07F + 8.05, "Line", "지금이라도 창고 문을 닫고 쥐 핑계를 대시지요."),
+    (S07F + 8.9, S07F + 13.4, "Line", "소만 한 쥐가 먹었다고 하면 곤장이 아니라 칼이 날아오겠소."),
+    (S07F + 14.2, S07F + 17.15, "Line", "(혼잣말) 안녕하십니까, 도절제사님."),
+    (S07F + 17.7, S07F + 19.85, "Line", "삭풍진 재고 감사 보고드리겠습니다."),
+    (S07F + 21.2, S07F + 23.9, "Line", "가, 감… 뭐라 하셨습니까?"),
+    (S07G + 4.2, S07G + 7.3, "Line", "도절제사 영감, 뵙습니다!"),
+    (S07G + 10.5, S07G + 13.6, "Line", "먼 길 오시느라 고생 많으셨습니다."),
+    (S07G + 18.0, S07G + 21.8, "Inner", "(속마음) 아우, 무릎이야."),
+    (S07H + 4.1, S07H + 6.5, "Line", "창고 문이 열려 있구나."),
+    (S07H + 10.0, S07H + 14.0, "Inner", "(속마음) 나랑 나이도 비슷해 보이는데… 눈빛이 상무님보다 무섭네."),
+    (S07H + 14.7, S07H + 16.2, "Line", "군량이 몇 석이냐."),
+    (S08A + 2.5, S08A + 4.7, "Line", "여보, 출근 안 해?"),
+    (S08A + 7.7, S08A + 8.9, "Line", "백이십 석."),
+    (S08A + 9.7, S08A + 12.0, "Line", "백이십 석 같은 소리 하고 있네."),
+    (S08A + 12.3, S08A + 13.7, "Line", "일곱 시 반이야!"),
+    (S08A + 15.0, S08A + 16.2, "Line", "아이고."),
+    (S08A + 17.2, S08A + 20.0, "Inner", "(속마음) 꿈이었나."),
+    (S08B + 1.6, S08B + 3.9, "Line", "아빠, 그걸 왜 찾아?"),
+    (S08B + 5.9, S08B + 8.3, "Line", "팔백 명을 먹여야 돼서."),
 ]
 SFX = [  # (time, file, volume)
     (S01 + 20.9, "audio/sfx/gag_crickets.mp3", 0.9),
@@ -131,6 +191,11 @@ SFX = [  # (time, file, volume)
     (S05A - 0.45, "audio/sfx/trans_whoosh.wav", 0.9),   # jump into Joseon (white flash)
     (S05A - 0.05, "audio/sfx/trans_boom.wav", 0.9),
     (S06A + 10.9, "audio/sfx/gag_crickets.mp3", 0.7),  # silence after "회의부터 합시다"
+    (S07D2 + 6.5, "audio/sfx/gag_crickets.mp3", 0.6),   # silence after "자진 신고부터 해야지"
+    (S07G + 13.7, "audio/sfx/gag_boing.mp3", 0.7),      # after the 90-degree office bow
+    (S07G - 0.6, "audio/sfx/gate_open.wav", 0.8),       # gate opens over the cut (gate shot dropped)
+    (S07H + 17.6, "audio/sfx/phone_alarm.wav", 0.35),   # alarm bleeds in before the white flash
+    (S07H + 19.4, "audio/sfx/trans_whoosh.wav", 0.7),
 ]
 BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/02_joseon_tension.mp3", S01, S01 + 25.0, 0.0, 0.30),
@@ -142,6 +207,10 @@ BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/02_joseon_tension.mp3", S06C, S06C + 28.0, 40.0, 0.24),
     ("audio/bgm/03_mansu_fumble.mp3", S07A + 0.5, S07AL + 4.0, 90.0, 0.16),
     ("audio/bgm/02_joseon_tension.mp3", S07B + 6.0, S07B + 24.4, 70.0, 0.22),
+    ("audio/bgm/02_joseon_tension.mp3", S07C + 0.5, S07D2 + 20.0, 100.0, 0.18),
+    ("audio/bgm/03_mansu_fumble.mp3", S07E + 0.5, S07F + 23.0, 30.0, 0.15),
+    ("audio/bgm/02_joseon_tension.mp3", S07G, S07H + 19.5, 0.0, 0.24),
+    ("audio/bgm/04_modern_daily.mp3", S08A + 1.0, S08B + 12.0, 0.0, 0.16),
 ]
 
 
