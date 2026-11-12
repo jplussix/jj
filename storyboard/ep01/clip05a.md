@@ -73,4 +73,4 @@ Keep Han Igyeom's face, topknot, beard and black cheollik with the leather vest 
 
 | 테이크 | 파일 | job | 결과 |
 |---|---|---|---|
-| 1 | `renders/ep01/clip05a_take1.mp4` | `025d13f9-6976-49f4-8487-4e4da9d20ce5` | 얼굴·의상·배경 유지 양호. 4단계 구성 그대로 나옴. 대사 발음은 사람이 들어서 확인 필요 |
+| 1 | `renders/ep01/clip05a_take1.mp4` | `025d13f9-6976-49f4-8487-4e4da9d20ce5` | 얼굴·의상·배경 유지 양호. 4단계 구성 그대로 나옴. 받아쓰기 결과: 3.8초 "어우, 아우"(아이고 대신 신음), 9.0초 "안 아프네", 26.7초 "누구세요?" — 세 줄 모두 알아들을 수 있게 나옴. 채택 후보 |
