@@ -28,7 +28,11 @@ character-consistency 스킬의 Character Brief 형식. 각 인물의 **IDENTITY
 | 박만수(현대·속마음) | 박만수 후보1 | `xikVJWJpydm4MXCV89Y2` | 확정 |
 | 천봉수 | Deok - Energetic Korean Narrator | `wisKdlUQEBMjkKqNAa3c` | 확정 (정면 립싱크 테스트 통과) |
 | 군관1(마른 30대) | Kyung Hoon - Calm & Natural | `JsyP5NIpAZhfPw5mwSP0` | 사용 중 |
-| 한이겸·조윤·군관2·정숙·하은·관리소장·최 상무·김종서 | — | — | 미정 |
+| 한이겸 | Gun Woong - Deep & Trustworthy | `J3IV02ZzZmojOIQbmpu0` | 확정 |
+| 조윤 | Isaac - Clear Korean Narrator | `8yI73tA9sY25UYpFjsgD` | 확정 |
+| 정숙 | Seulki | `ksaI0TCD9BstzEzlxj4q` | 확정 |
+| 하은 | Mina - Clear, Calm & Warm | `aiUUgjHa4mpHf6UenZuf` | 확정 |
+| 군관2·관리소장·최 상무·김종서 | — | — | 미정 |
 
 ## 박만수 (현대)
 
