@@ -8,14 +8,14 @@ character-consistency 스킬의 Character Brief 형식. 각 인물의 **IDENTITY
 
 ## 박만수 (현대)
 
-- **나이/체격**: 54세 한국 남성, 175cm. 어깨가 넓고 팔뚝이 굵은 떡대, 배가 나왔다. 비만은 아니다.
+- **나이/체격**: 54세 한국 남성, 175cm. 어깨가 넓고 팔뚝이 굵은 떡대, 배가 살짝 나왔다. 듬직하고 호감 가는 옆집 아저씨 인상.
 - **알아보는 표시**: 왼쪽 눈 아래 광대 위의 작은 점, 왼손목의 싸구려 은색 시계.
-- **기본 표정**: 지쳤지만 순한 눈, 입을 꾹 다문 얼굴.
+- **기본 표정**: 지쳤지만 순하고 따뜻한 눈, 입가에 옅은 미소.
 - **의상(시즌 1 기본)**: 진회색 작업 점퍼, 남색 폴로셔츠, 진회색 슬랙스, 낡은 검정 구두.
 
 **IDENTITY**
 ```
-Park Mansu, an original 54-year-old Korean man, 175 cm, heavy-set broad frame with wide shoulders, thick forearms and a soft rounded belly, sturdy rather than obese. Broad square face with slightly sagging jowls, deep nasolabial folds and crow's feet. Small single-lidded dark brown eyes with a tired, gentle gaze and naturally muted catchlights. Thick dark eyebrows peppered with grey. Broad flat nose, thin lips pressed together. Faint grey stubble on the jaw. One small dark mole on the left cheekbone just below the left eye. Sun-weathered warm tan skin with visible pores, fine wrinkles and two faint age spots on the right temple. Short cropped salt-and-pepper hair, mostly grey at the sides, slightly thinning at the crown, combed back neatly. Wearing a charcoal grey zip-up padded work jacket in matte nylon, worn and slightly frayed at the cuffs, over a navy blue polo shirt with the collar visible, dark grey slacks, worn black leather walking shoes, and a cheap silver wristwatch on the left wrist.
+Park Mansu, an original 54-year-old Korean man, 175 cm, broad-shouldered sturdy build with thick forearms and a slight belly, a dependable and likable dad-next-door look. Square face with a firm jaw, healthy warm tan complexion, smile lines at the eyes and mouth, gentle crow's feet. Kind, warm dark brown eyes, slightly tired, with naturally muted catchlights. Thick dark eyebrows with a few grey hairs. Straight sturdy nose, full lips with a faint good-natured closed-mouth smile at rest. Clean-shaven with a light shadow on the jaw. One small dark mole on the left cheekbone just below the left eye. Natural skin with visible pores and fine wrinkles. Short, thick, neatly trimmed salt-and-pepper hair, grey at the temples, combed back neatly. Wearing a charcoal grey zip-up padded work jacket in matte nylon, worn and slightly frayed at the cuffs, over a navy blue polo shirt with the collar visible, dark grey slacks, worn black leather walking shoes, and a cheap silver wristwatch on the left wrist.
 ```
 
 ## 한이겸 (조선, 속은 박만수)
@@ -60,14 +60,14 @@ Jo Yun, an original 35-year-old Korean man, 176 cm, slender with an upright, com
 
 ## 정숙 (현대, 아내)
 
-- **나이/체격**: 52세 한국 여성, 160cm. 다부진 보통 체격.
-- **알아보는 표시**: 남색 바탕에 작은 흰 꽃무늬 앞치마, 뿌리가 희끗한 짧은 파마머리.
-- **기본 표정**: 바쁘고 피곤하지만 다정한 얼굴.
-- **의상**: 베이지 니트 가디건, 하늘색 줄무늬 블라우스, 갈색 면바지, 앞치마.
+- **나이/체격**: 52세 한국 여성, 162cm. 날씬하고 관리 잘한 미시 스타일. 40대 초중반으로 보인다.
+- **알아보는 표시**: 남색 바탕에 작은 흰 꽃무늬 앞치마, 어깨 길이 웨이브 머리, 진주 귀걸이.
+- **기본 표정**: 생기 있고 다정한 미소.
+- **의상**: 크림색 니트 가디건, 하늘색 줄무늬 블라우스, 갈색 면바지, 앞치마.
 
 **IDENTITY**
 ```
-Jeongsuk, an original 52-year-old Korean woman, 160 cm, sturdy average build. Round face with soft cheeks, mature adult features, visible laugh lines, fine wrinkles at the eyes and a few light age spots on the cheeks. Dark brown double-lidded eyes with a busy, tired but warm look and naturally muted catchlights. Natural thin eyebrows, small nose, lips with only clear lip balm, no visible makeup. Matte skin with natural pores. Short permed bob in dark brown with grey roots showing at the part. Wearing a beige knit cardigan over a light blue and white striped cotton blouse, dark brown cotton trousers, grey house slippers, a navy blue apron printed with small white flowers tied at the waist, and a thin plain gold wedding ring.
+Jeongsuk, an original 52-year-old Korean woman, 162 cm, slim and well-kept figure, an elegant and pretty young-looking mother who reads as early-to-mid forties. Soft oval face with defined cheekbones and a gentle jawline, mature adult features. Clear bright skin with natural fine texture and faint smile lines at the eyes. Large warm dark brown double-lidded eyes with naturally muted catchlights, softly shaped natural eyebrows. Light natural makeup: thin brown eyeliner, rosy coral lip color, faint blush. Shoulder-length dark brown hair with soft loose waves, glossy and neatly styled with a side part, a few strands tucked behind the right ear. Small pearl stud earrings. Wearing a soft cream knit cardigan over a light blue and white striped cotton blouse, dark brown cotton trousers, grey house slippers, a navy blue apron printed with small white flowers tied at the waist, and a thin plain gold wedding ring.
 ```
 
 ## 하은 (현대, 딸)
