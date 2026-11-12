@@ -12,8 +12,9 @@
 |---|---|---|---|---|---|
 | 01 | 1 | 성루, 밤 | 25초 | 한이겸, 천봉수, 군관들 | **테이크 1 생성** (`renders/ep01/clip01_take1.mp4`, job `4d3ee2e8-badf-4db8-894d-62148c119344`). 받아쓰기: "적이 육천입니다. 아군은 팔백입니다." 9초, "장정(장군?), 명을 내리소서." 15초. 한이겸이 시트의 철릭 대신 전신 찰갑을 입고 나옴(채택, 06A도 같은 갑옷). 속마음 3줄 합본: `renders/ep01/clip01_take1_vo.mp4` (1.5초 "여기 어디야…", 12초 "육천? 팔백? 재고 얘긴가", 18초 "장군? 나한테 하는 소리야?") |
 | 02A | 2 | 물류센터 사무실 | 25초 | 박만수, 최 상무 | 프롬프트 완료 |
-| 03 | 3 | 관리사무소 | 30초 | 박만수, 관리소장 | 프롬프트 완료 |
-| 04 | 4 | 거실, 밤 | 30초 | 박만수, 정숙, 하은 | 프롬프트 완료 |
+| 03 | 3 | 관리사무소 | 30초 | 박만수, 관리소장 | **생성 완료** (Claude판 채택, `renders/ep01/clip03_take1_claude.mp4`) |
+| 04A | 4 | 거실 식탁, 밤 | 23초 | 박만수, 정숙, 하은 | 작성 중 |
+| 04B | 4 | 거실 소파, 밤 | 8초 | 박만수 | 작성 중 |
 | 05A | 5 | 군막 | 30초 | 한이겸 | **생성 완료** |
 | 05B | 5 | 군막 | 30초 | 한이겸, 천봉수 | 프롬프트 완료 |
 | 06A | 6 | 성루, 아침 | 25초 | 한이겸, 천봉수, 조윤, 군관들 | 프롬프트 완료 |
@@ -160,7 +161,7 @@ No BGM; only ambient and action sounds: <the desk fan's steady whir and soft rat
 @Image 1 is Park Mansu, @Image 2 is the Office Manager, @Image 3 is the office. Keep both men's faces, hair and clothing identical to their references, the reading glasses on the Office Manager's nose, the Office Manager behind the desk with the window and cardboard mountain behind him, Park Mansu on the folding chair across the desk, and the camera on the folding-chair side of the action line. Normal human eyes. Real-time natural speed, no slow motion. No subtitles, no on-screen text.
 ```
 
-## 클립 04 — 거실, 밤 (30초)
+## 클립 04A — 거실 식탁, 밤 (23초)
 
 **참조**: 1 박만수 시트, 2 정숙 시트, 3 하은 시트, 4 거실
 
@@ -202,6 +203,12 @@ No BGM; only ambient and action sounds: <soft bubbling of doenjang stew>, <paper
 [Maintain Consistency]
 @Image 1 is Park Mansu, @Image 2 is Jeongsuk, @Image 3 is Haeun, @Image 4 is the apartment living room and dining area. Keep Park Mansu's, Jeongsuk's, and Haeun's faces, hair and clothing identical to their references, including Park Mansu's charcoal grey work jacket and cheap silver wristwatch, Jeongsuk's navy floral apron and pearl stud earrings, and Haeun's oversized heather grey hoodie. Keep Park Mansu at the head of the dining table, Jeongsuk on his left with the household ledger and receipts, Haeun on his right with her smartphone and rice bowl until she exits through the bedroom door, the pot of doenjang stew in the center of the table, and the camera on the front side of the action line. Normal human eyes. Real-time natural speed, no slow motion. No subtitles, no on-screen text.
 ```
+
+## 클립 04B — 거실 소파, 밤 (8초)
+
+(작성 예정)
+
+---
 
 ## 클립 05B — 군막 (30초)
 
