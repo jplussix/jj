@@ -462,3 +462,24 @@ Stage 1 is a medium two-shot from the side with an insert of the phone screen. S
 [Maintain Consistency]
 Keep both faces and clothing identical to their references.
 ```
+
+---
+
+## 참조 이미지 ID (힉스필드 job)
+
+| 이름 | 파일 | job |
+|---|---|---|
+| 한이겸 시트 | `docs/sheets/hanigyeom.png` | `63cb6e08-d28c-4664-af11-533a329286cb` |
+| 천봉수 시트 | `docs/sheets/cheonbongsu.png` | `52fad13a-8e00-49bf-881b-0bdaa5e32315` |
+| 조윤 시트 | `docs/sheets/joyun.png` | `24c87eb6-9680-424b-bfc6-a206ecaf1c76` |
+| 박만수 시트 | `docs/sheets/parkmansu.png` | `98e0a6a0-cb83-4572-8339-67c05035e377` |
+| 정숙 시트 | `docs/sheets/jeongsuk.png` | `b843e5a5-b920-4b9a-b473-9515449371f1` |
+| 하은 시트 | `docs/sheets/haeun.png` | `4260d24f-e8ae-43d9-8bbe-cfb1ea3341c9` |
+| 최 상무 시트 | `docs/sheets/choi.png` | `059450e6-1190-4951-8559-641bb0c48d51` |
+| 관리소장 시트 | `docs/sheets/manager.png` | `694d2811-b832-4af3-883a-55d6ad5c4c90` |
+| 군막 | `docs/locations/tent_a.png` | `d21fdb03-3a84-43d0-aa8f-7d882fabf861` |
+| 성루 | `docs/locations/wall_a.png` | `d612bedc-0345-4e7e-8951-87b598c08a1f` |
+| 물류센터 사무실 | `docs/locations/office.png` | `b2ac4035-849f-458d-af70-eb0376330ef5` |
+| 물류센터 창고 | `docs/locations/warehouse.png` | `7d197106-d9e2-4757-9816-77bf49c2c4ea` |
+| 관리사무소 | `docs/locations/mgmt_office.png` | `526d3341-2994-4e87-b84e-22120c586251` |
+| 지휘 군막, 군량 창고, 거실, 현관, 박만수 경비복 | 아직 없음 | |
