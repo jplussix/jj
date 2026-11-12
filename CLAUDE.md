@@ -1,6 +1,6 @@
 # 잠들면 장군 — 제작 메모
 
-AI 드라마 유튜브 채널 프로젝트. 대본은 `scripts/`, 인물 설정은 `docs/characters.md`, 시대 배경과 실존 인물 원칙은 `docs/setting.md`.
+AI 드라마 유튜브 채널 프로젝트. 대본은 `scripts/`, 인물 설정은 `docs/characters.md`, 시대 배경과 실존 인물 원칙은 `docs/setting.md`, 사운드 설계는 `docs/sound.md`.
 
 ## 영상 생성 규칙
 
