@@ -13,8 +13,8 @@
 | 01 | 1 | 성루, 밤 | 25초 | 한이겸, 천봉수, 군관들 | **테이크 1 생성** (`renders/ep01/clip01_take1.mp4`, job `4d3ee2e8-badf-4db8-894d-62148c119344`). 받아쓰기: "적이 육천입니다. 아군은 팔백입니다." 9초, "장정(장군?), 명을 내리소서." 15초. 한이겸이 시트의 철릭 대신 전신 찰갑을 입고 나옴(채택, 06A도 같은 갑옷). 속마음 3줄 합본: `renders/ep01/clip01_take1_vo.mp4` (1.5초 "여기 어디야…", 12초 "육천? 팔백? 재고 얘긴가", 18초 "장군? 나한테 하는 소리야?") |
 | 02A | 2 | 물류센터 사무실 | 25초 | 박만수, 최 상무 | 프롬프트 완료 |
 | 03 | 3 | 관리사무소 | 30초 | 박만수, 관리소장 | **생성 완료** (Claude판 채택, `renders/ep01/clip03_take1_claude.mp4`) |
-| 04A | 4 | 거실 식탁, 밤 | 23초 | 박만수, 정숙, 하은 | 작성 중 |
-| 04B | 4 | 거실 소파, 밤 | 8초 | 박만수 | 작성 중 |
+| 04A | 4 | 거실 식탁, 밤 | 23초 | 박만수, 정숙, 하은 | 프롬프트 완료 (Argon, 검수) |
+| 04B | 4 | 거실 소파, 밤 | 8초 | 박만수 | 프롬프트 완료 (Argon, 검수 수정 2곳) |
 | 05A | 5 | 군막 | 30초 | 한이겸 | **생성 완료** |
 | 05B | 5 | 군막 | 30초 | 한이겸, 천봉수 | 프롬프트 완료 |
 | 06A | 6 | 성루, 아침 | 25초 | 한이겸, 천봉수, 조윤, 군관들 | 프롬프트 완료 |
@@ -219,18 +219,18 @@ Park Mansu corresponds to @Image 1: an original 54-year-old Korean man, broad-sh
 In the living room area, Park Mansu always sits alone on the living room sofa facing the television set, holding a black television remote control in his right hand resting on his lap, with his left forearm resting on his thigh. The television set always stands across from the sofa, its glowing screen showing a period drama scene with a bearded actor in Joseon general armor.
 
 [Event Script]
-0-2s: Over-the-shoulder medium shot at seated eye level from beside Park Mansu on the living room sofa toward the glowing television screen, with Park Mansu's shoulder, heavy-lidded profile, and right hand gripping the black remote control on his lap clearly visible in the foreground. On the television screen, a bearded actor in Joseon general armor grips the hilt of his sword at his waist and draws the long blade free. Both mouths closed.
+0-2s: Over-the-shoulder medium shot at seated eye level from beside Park Mansu on the living room sofa toward the glowing television screen, with Park Mansu's shoulder, heavy-lidded profile, and right hand gripping the black remote control on his lap clearly visible in the foreground. On the television screen, a bearded actor in Joseon general armor grips the hilt of his sword at his waist and draws the long blade free. Park Mansu's mouth stays closed.
 2-5s: Same over-the-shoulder medium shot framing the glowing television screen and Park Mansu's right hand holding the black remote control in the foreground. On the television screen, the bearded actor in Joseon general armor raises the drawn long sword high above his head. At 2s the actor on the television screen shouts in Seoul-accented Korean, in a booming theatrical tone: {전군, 나를 따르라!} Park Mansu's mouth stays closed as his eyelids droop heavy with sleep.
 5-8s: The key moment. Starting from a medium close-up of Park Mansu on the living room sofa with the black remote control held in his right hand on his lap, the camera dollies in across this whole range to a close-up of his sleeping face. Under the flickering blue glow from the television screen, his heavy eyelids shut completely, his chin drops onto his chest, his fingers relax around the remote control on his lap, and his lips part in a steady snore as his chest rises and falls. Final frame: Park Mansu held asleep on the sofa in a close-up with his chin resting on his chest, his mouth slightly open snoring, the black remote control in his right hand on his lap, and blue television light flickering across his face.
 
 [Visual and Camera Treatment]
-All shots at seated eye level, staying on the television side of the living room sofa along a single action line. Camera on a tripod and locked off in every shot except the dolly-in at 5-8s. Faces and the television screen fill a large part of the frame in every shot, starting from an over-the-shoulder medium shot and moving into a medium close-up and close-up. Lighting for this location: warm overhead pendant light illuminates the dining table and faces during dinner, while the living room sofa area is lit by the flickering blue glow of the television screen against soft warm apartment wall light.
+All shots at seated eye level from the right side of the sofa, with the television always to the left of Park Mansu in frame. Camera on a tripod and locked off in every shot except the dolly-in at 5-8s. Faces and the television screen fill a large part of the frame in every shot, starting from an over-the-shoulder medium shot and moving into a medium close-up and close-up. Lighting for this location: warm overhead pendant light illuminates the dining table and faces during dinner, while the living room sofa area is lit by the flickering blue glow of the television screen against soft warm apartment wall light.
 
 [Audio]
 No BGM; only ambient and action sounds: <sword-draw ring from the television speaker>, <faint fabric rustle on the sofa>, <Park Mansu's steady snoring>. The television general speaks Korean in a booming, commanding theatrical male voice. Park Mansu's voice is a warm, slightly husky baritone of a man in his fifties, speaking slowly and politely, heard here only as a steady snore in sleep. Only the person speaking in each shot moves their mouth; everyone else keeps their mouth closed.
 
 [Maintain Consistency]
-@Image 1 is Park Mansu, @Image 2 is the apartment living room. Keep Park Mansu's face, hair and clothing identical to his reference, including his charcoal grey work jacket, navy blue polo shirt, and cheap silver wristwatch on the left wrist. Keep Park Mansu seated on the living room sofa facing the television set, the black remote control in his right hand on his lap, the flickering blue television glow across his face, and the camera on the television side of the action line. Normal human eyes. Real-time natural speed, no slow motion. No subtitles, no on-screen text.
+@Image 1 is Park Mansu, @Image 2 is the apartment living room. Keep Park Mansu's face, hair and clothing identical to his reference, including his charcoal grey work jacket, navy blue polo shirt, and cheap silver wristwatch on the left wrist. Keep Park Mansu seated on the living room sofa facing the television set, the black remote control in his right hand on his lap, the flickering blue television glow across his face, and the camera on the right side of the sofa. Normal human eyes. Real-time natural speed, no slow motion. No subtitles, no on-screen text.
 ```
 
 ---
@@ -506,4 +506,5 @@ Keep both faces and clothing identical to their references.
 | 물류센터 사무실 | `docs/locations/office.png` | `b2ac4035-849f-458d-af70-eb0376330ef5` |
 | 물류센터 창고 | `docs/locations/warehouse.png` | `7d197106-d9e2-4757-9816-77bf49c2c4ea` |
 | 관리사무소 | `docs/locations/mgmt_office.png` | `526d3341-2994-4e87-b84e-22120c586251` |
+| 거실 (식탁·소파, 밤) | `docs/locations/living_room.png` (GPT, ChatGPT 구독) | media `d41bfb3a-186f-4f03-9b19-9ebca8d5e2bc` |
 | 지휘 군막, 군량 창고, 거실, 현관, 박만수 경비복 | 아직 없음 | |
