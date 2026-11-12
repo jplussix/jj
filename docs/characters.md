@@ -4,9 +4,26 @@ character-consistency 스킬의 Character Brief 형식. 각 인물의 **IDENTITY
 
 모든 인물은 창작 인물이다. 실존 인물이나 배우를 닮게 만들지 않는다.
 
+## 키 관계
+
+키 숫자(cm)는 모델이 잘 안 지킨다. 두 사람이 한 화면에 나오는 컷에는 **"누구 머리 꼭대기가 누구의 어디에 닿는다"**는 문장을 프롬프트에 같이 넣는다. 아래 문장은 키 차이로 계산한 것이라 실제와 맞는다.
+
+| 조합 | 키 | 프롬프트에 넣을 문장 |
+|---|---|---|
+| 한이겸 / 천봉수 | 185 / 168 | `The top of Cheon Bongsu's head reaches only Han Igyeom's nose.` |
+| 한이겸 / 조윤 | 185 / 176 | `The top of Jo Yun's head reaches Han Igyeom's eyebrows.` |
+| 조윤 / 천봉수 | 176 / 168 | `The top of Cheon Bongsu's head reaches Jo Yun's eyes.` |
+| 박만수 / 정숙 | 175 / 162 | `The top of Jeongsuk's head reaches Park Mansu's nose.` |
+| 박만수 / 하은 | 175 / 163 | `The top of Haeun's head reaches Park Mansu's nose.` |
+| 정숙 / 하은 | 162 / 163 | `Jeongsuk and Haeun are about the same height.` |
+
+한이겸과 천봉수의 키 차이(17cm)는 개그에 쓴다. 천봉수가 한이겸을 올려다보며 말하는 구도가 기본이다.
+
 ---
 
 ## 박만수 (현대)
+
+- **확정 시트**: `docs/sheets/parkmansu.png` (힉스필드 job `98e0a6a0-cb83-4572-8339-67c05035e377`). 기준 얼굴 job `57e4fe0c-9bcc-4f95-8a49-28543487c4b7`.
 
 - **나이/체격**: 54세 한국 남성, 175cm. 어깨가 넓고 팔뚝이 굵은 떡대, 배가 살짝 나왔다. 듬직하고 호감 가는 옆집 아저씨 인상.
 - **알아보는 표시**: 왼쪽 눈 아래 광대 위의 작은 점, 왼손목의 싸구려 은색 시계.
@@ -19,6 +36,8 @@ Park Mansu, an original 54-year-old Korean man, 175 cm, broad-shouldered sturdy 
 ```
 
 ## 한이겸 (조선, 속은 박만수)
+
+- **확정 시트**: `docs/sheets/hanigyeom.png` (힉스필드 job `63cb6e08-d28c-4664-af11-533a329286cb`). 기준 얼굴 job `3eb17134-4008-4149-a495-ac50af59281b`.
 
 - **나이/체격**: 28세 한국 남성, 185cm. 어깨가 넓고 가슴이 두꺼운 무인 체격.
 - **알아보는 표시**: 왼쪽 눈썹을 가로지르는 옅은 흉터, 상투에서 흘러내린 잔머리.
@@ -36,6 +55,8 @@ Han Igyeom, an original 28-year-old Korean man, 185 cm, broad-shouldered powerfu
 
 ## 천봉수 (조선)
 
+- **확정 시트**: `docs/sheets/cheonbongsu.png` (힉스필드 job `52fad13a-8e00-49bf-881b-0bdaa5e32315`). 기준 얼굴 job `992d8cc4-7806-4bd0-a44d-f7c6d9054867`.
+
 - **나이/체격**: 45세 한국 남성, 168cm. 키는 작고 통이 굵은 땅딸막한 체격.
 - **알아보는 표시**: 짧고 숱 많은 콧수염, 붉게 탄 둥근 볼, 이마의 검은 망건.
 - **기본 표정**: 눈을 동그랗게 뜬 성실한 얼굴.
@@ -47,6 +68,8 @@ Cheon Bongsu, an original 45-year-old Korean man, 168 cm, short and stocky with 
 ```
 
 ## 조윤 (조선, 종사관)
+
+- **확정 시트**: `docs/sheets/joyun.png` (힉스필드 job `24c87eb6-9680-424b-bfc6-a206ecaf1c76`). 기준 얼굴 job `3c620fb8-0220-4acc-83af-cefdffac78fc`.
 
 - **나이/체격**: 35세 한국 남성, 176cm. 마르고 곧은 자세.
 - **알아보는 표시**: 콧등의 옅은 주근깨, 허리에 찬 작은 붓 통.
@@ -60,6 +83,8 @@ Jo Yun, an original 35-year-old Korean man, 176 cm, slender with an upright, com
 
 ## 정숙 (현대, 아내)
 
+- **확정 시트**: `docs/sheets/jeongsuk.png` (힉스필드 job `b843e5a5-b920-4b9a-b473-9515449371f1`). 기준 얼굴 job `9c2688c3-ff14-46cf-b8fd-add61520aa8f`.
+
 - **나이/체격**: 52세 한국 여성, 162cm. 날씬하고 관리 잘한 미시 스타일. 40대 초중반으로 보인다.
 - **알아보는 표시**: 남색 바탕에 작은 흰 꽃무늬 앞치마, 어깨 길이 웨이브 머리, 진주 귀걸이.
 - **기본 표정**: 생기 있고 다정한 미소.
@@ -71,6 +96,8 @@ Jeongsuk, an original 52-year-old Korean woman, 162 cm, slim and well-kept figur
 ```
 
 ## 하은 (현대, 딸)
+
+- **확정 시트**: `docs/sheets/haeun.png` (힉스필드 job `4260d24f-e8ae-43d9-8bbe-cfb1ea3341c9`). 기준 얼굴 job `4c46c5f4-4f20-4fe6-835a-37c2ed3e4bdc`.
 
 - **나이/체격**: 27세 한국 여성, 163cm. 마른 체격.
 - **알아보는 표시**: 오른쪽 윗입술 위의 작은 점, 가운데 가르마의 긴 생머리.
