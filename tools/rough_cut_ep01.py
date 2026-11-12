@@ -28,15 +28,16 @@ SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs),
     ("renders/ep01/clip06a_combined.mp4", 25.6, 0, ("black", 0.6), ("black", 0.35)),
     ("renders/ep01/clip06b_seedance.mp4", 24.06, 0, ("black", 0.35), None),
     ("renders/ep01/clip06c_take1.mp4", 28.05, 0, None, ("black", 0.5)),
-    ("renders/ep01/clip07a_take1.mp4", 26.0, 0, ("black", 0.5), ("black", 0.25)),  # cut before the over-acted laugh
-    ("renders/ep01/clip07b_take1.mp4", 24.06, 0, ("black", 0.25), ("black", 1.2)),
+    ("renders/ep01/clip07a_take1.mp4", 26.0, 0, ("black", 0.5), None),  # cut before the over-acted laugh
+    ("renders/ep01/clip07a_laugh_fix.mp4", 4.0, 0, None, ("black", 0.25)),  # restrained laugh re-shoot
+    ("renders/ep01/clip07b_combined.mp4", 24.45, 0, ("black", 0.25), ("black", 1.2)),  # take1 0-18.375 + dry-face ending
 ]
 starts, t = [], 0.0
 for seg in SEGMENTS:
     starts.append(t)
     t += seg[1]
 TOTAL = t
-S01, STITLE, SCARD, S02A, S03, S04A, S04B, S05A, S05B, S06A, S06B, S06C, S07A, S07B = starts
+S01, STITLE, SCARD, S02A, S03, S04A, S04B, S05A, S05B, S06A, S06B, S06C, S07A, S07AL, S07B = starts
 
 # (start, end, style, text). 03 times: scribe transcript minus the 2s trim.
 # 04A take2 / 05B: not transcribed (credits) - estimated from take1 / prompt timeline.
@@ -120,7 +121,7 @@ SUBS = [
     (S07B + 10.75, S07B + 12.6, "Line", "(밖에서) 아니다! 우리 깃발이다!"),
     (S07B + 12.95, S07B + 14.8, "Line", "(밖에서) 도절제사 영감이시다!"),
     (S07B + 15.2, S07B + 18.2, "Line", "장군님, 대호께서 오셨습니다. 하필 오늘."),
-    (S07B + 21.6, S07B + 23.5, "Line", "본사 감사가 왜 하필 지금."),
+    (S07B + 20.75, S07B + 22.3, "Line", "본사 감사가 왜 하필 지금."),
 ]
 SFX = [  # (time, file, volume)
     (S01 + 20.9, "audio/sfx/gag_crickets.mp3", 0.9),
@@ -139,8 +140,8 @@ BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/03_mansu_fumble.mp3", S05A + 5.0, S05B + 31.4, 0.0, 0.22),
     ("audio/bgm/03_mansu_fumble.mp3", S06A + 0.5, S06B + 24.0, 60.0, 0.18),
     ("audio/bgm/02_joseon_tension.mp3", S06C, S06C + 28.0, 40.0, 0.24),
-    ("audio/bgm/03_mansu_fumble.mp3", S07A + 0.5, S07A + 26.0, 90.0, 0.16),
-    ("audio/bgm/02_joseon_tension.mp3", S07B + 6.0, S07B + 24.0, 70.0, 0.22),
+    ("audio/bgm/03_mansu_fumble.mp3", S07A + 0.5, S07AL + 4.0, 90.0, 0.16),
+    ("audio/bgm/02_joseon_tension.mp3", S07B + 6.0, S07B + 24.4, 70.0, 0.22),
 ]
 
 
