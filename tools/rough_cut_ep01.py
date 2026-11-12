@@ -22,7 +22,7 @@ SEGMENTS = [  # (file, duration, start offset in source)
     ("renders/ep01/clip04a_take2.mp4", 23.0, 0),
     ("renders/ep01/clip04b_take2.mp4", 10.0, 0),
     ("renders/ep01/clip05a_take1.mp4", 30.08, 0),
-    ("renders/ep01/clip05b_combined.mp4", 32.18, 0),
+    ("renders/ep01/clip05b_combined.mp4", 31.48, 0),
 ]
 starts, t = [], 0.0
 for _, d, _o in SEGMENTS:
@@ -77,14 +77,14 @@ SFX = [  # (time, file, volume)
     (S01 + 20.9, "audio/sfx/gag_crickets.mp3", 0.9),
     (S03 + 19.95, "audio/sfx/gag_crickets.mp3", 0.8),
     (S05A + 27.4, "audio/sfx/gag_boing.mp3", 0.8),
-    (S05B + 26.9, "audio/sfx/gag_boing.mp3", 0.9),
+    (S05B + 26.2, "audio/sfx/gag_boing.mp3", 0.9),
 ]
 BGM = [  # (file, start, end, source offset, volume)
     ("audio/bgm/02_joseon_tension.mp3", S01, S01 + 25.0, 0.0, 0.30),
     ("audio/bgm/05_bittersweet.mp3", SCARD, S02A + 25.0, 0.0, 0.26),
     ("audio/bgm/04_modern_daily.mp3", S03, S03 + 28.0, 0.0, 0.18),
     ("audio/bgm/05_bittersweet.mp3", S04A, S04A + 23.0, 30.0, 0.22),
-    ("audio/bgm/03_mansu_fumble.mp3", S05A + 5.0, S05B + 32.1, 0.0, 0.22),
+    ("audio/bgm/03_mansu_fumble.mp3", S05A + 5.0, S05B + 31.4, 0.0, 0.22),
 ]
 
 
