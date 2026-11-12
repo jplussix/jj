@@ -22,10 +22,16 @@
 | 06C | 6 | 지휘 군막 | 25초 | 한이겸, 천봉수, 조윤 | 프롬프트 완료 |
 | 07A | 7 | 군량 창고 | 30초 | 한이겸, 천봉수, 조윤, 병사들 | 프롬프트 완료 |
 | 07B | 7 | 군량 창고 | 25초 | 한이겸, 천봉수, 조윤 | 프롬프트 완료 |
+| 07C | 7-2 | 군량 창고 | 25초 | 한이겸, 천봉수, 조윤, 병사들 | 프롬프트 작성 중 |
+| 07D | 7-2 | 군량 창고 | 25초 | 한이겸, 천봉수, 조윤 | 프롬프트 작성 중 |
+| 07E | 7-3 | 성문 안 마당 | 25초 | 한이겸, 천봉수, 조윤, 군관들 | 프롬프트 작성 중 |
+| 07F | 7-3 | 성문 안 마당 | 25초 | 한이겸, 천봉수, 조윤 | 프롬프트 작성 중 |
+| 07G | 7-4 | 성문 안 마당 | 25초 | 한이겸, 김종서, 천봉수, 조윤, 군관들 | 프롬프트 작성 중 |
+| 07H | 7-4 | 성문 안 마당 | 20초 | 한이겸, 김종서 | 프롬프트 작성 중 |
 | 08A | 8 | 거실, 아침 | 20초 | 박만수, 정숙 | 프롬프트 완료 |
 | 08B | 8 | 현관 | 15초 | 박만수(경비복), 하은 | 프롬프트 완료 |
 
-합계 약 6분 40초, 14클립.
+합계 약 9분, 20클립 (07C~07H는 씬 7-2~7-4 추가분).
 
 ## 생성 전에 만들어야 할 참조 이미지
 
@@ -536,6 +542,42 @@ No BGM; only ambient and action sounds: <a long, low horn blast echoing from out
 [Maintain Consistency]
 @Image 1 is Han Igyeom, @Image 2 is Cheon Bongsu, @Image 3 is Jo Yun, @Image 4 is the wooden grain storehouse. Keep all three men's faces, hairstyles, builds and clothing identical to their references, including Han Igyeom's topknot, neatly trimmed black beard, thin pale scar on the left eyebrow, black cheollik robe and dark brown studded leather lamellar vest, Cheon Bongsu's black horsehair headband (manggeon), short dense black mustache and brown leather lamellar armor, and Jo Yun's pale grey-blue silk dopo robe, dark navy chest sash and small black lacquered brush case at the left hip. Keep the bare wooden storehouse wall exposed behind the low rows of counted straw sacks, Han Igyeom on the left, Jo Yun and Cheon Bongsu on the right, and the camera on the same side of the action line. Normal human eyes. Real-time natural speed, no slow motion. No subtitles, no on-screen text.
 ```
+
+## 클립 07C — 군량 창고, 아침 (25초)
+
+(아직 없음. 씬 7-2~7-4에서 새로 쓴다.)
+
+---
+
+## 클립 07D — 군량 창고, 아침 (25초)
+
+(아직 없음. 씬 7-2~7-4에서 새로 쓴다.)
+
+---
+
+## 클립 07E — 성문 안 마당, 아침 (25초)
+
+(아직 없음. 씬 7-2~7-4에서 새로 쓴다.)
+
+---
+
+## 클립 07F — 성문 안 마당, 아침 (25초)
+
+(아직 없음. 씬 7-2~7-4에서 새로 쓴다.)
+
+---
+
+## 클립 07G — 성문 안 마당, 아침 (25초)
+
+(아직 없음. 씬 7-2~7-4에서 새로 쓴다.)
+
+---
+
+## 클립 07H — 성문 안 마당, 아침 (20초)
+
+(아직 없음. 씬 7-2~7-4에서 새로 쓴다.)
+
+---
 
 ## 클립 08A — 거실, 아침 (18초)
 

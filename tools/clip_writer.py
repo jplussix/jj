@@ -66,7 +66,7 @@ def check_dialogue(script, new, rep):
     """Hallucination check: every spoken line {..} in a clip must come from the script."""
     script_n = norm(re.sub(r"\([^)]*\)", "", script))
     for cid, sec in new.items():
-        for line in re.findall(r"\{([^}]*)\}", sec):
+        for line in re.findall(r"\{([^}]*)\}", sec) + re.findall(r"\"([^\"]*[가-힣][^\"]*)\"", sec):
             for sent in re.split(r"(?<=[.?!])\s+", line):
                 if norm(sent) and norm(sent) not in script_n:
                     rep.err(f"클립 {cid}", f"대본에 없는 대사(환각 의심): {{{sent}}}")

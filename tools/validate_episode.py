@@ -134,14 +134,14 @@ def validate_clips(root, clips, rep):
             rep.err(where, "빠진 칸: " + ", ".join(s for s, i in zip(SECTIONS, pos) if i == -1))
         elif pos != sorted(pos):
             rep.err(where, "7칸 순서가 틀림")
-        lines = re.findall(r"\{([^}]*)\}", p)
+        lines = re.findall(r"\{([^}]*)\}", p) + re.findall(r"\"([^\"]*[가-힣][^\"]*)\"", p)
         if len(lines) > 8:
             rep.err(where, f"대사 {len(lines)}줄: 8줄 이하로")
         outside = re.sub(r"\{[^}]*\}|\"[^\"]*\"|: [가-힣][^.\n]*\.", "", p)  # dialogue, quoted on-screen text
         if re.search(r"[가-힣]", outside):
             hangul = re.findall(r"[가-힣][가-힣\s]*", outside)[:3]
             rep.err(where, f"프롬프트에 대사 밖 한글이 있음(영어로): {hangul}")
-        if re.search(r"\b(480p|720p|1080p|16:9|9:16|\d+\s*(?:seconds?|secs?))\b", p):
+        if re.search(r"\b(480p|720p|1080p|16:9|9:16|\d+\s*(?:seconds?|secs?)(?!\s*\(\d+ frames))\b", p):
             rep.err(where, "길이·화면비·해상도는 프롬프트에 쓰지 않는다")
         for s in id_sentences:
             if s in p:
