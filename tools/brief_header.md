@@ -122,10 +122,13 @@
 [Event Script]
 정수 초 타임라인. 빈틈 없이 이어서 클립 길이에 맞춘다(30초 클립이면 0-3s ... 28-30s).
 - 구간마다: 샷 크기 + 한 가지 동작 + (있으면) 대사 한 줄.
-- 대사: `At <초>s he says (speaking in Korean <속도·발음>; <감정과 상황을 구체적으로>): "대사"` — 한 구간에 한 사람만 말하고, 그 구간은 말하는 사람을 잡는다(투샷에서 주고받기 금지: 입이 엉뚱한 사람에게 붙는다).
-  - 괄호 안에 `in Korean`과 함께 **감정·말투를 구체적으로** 쓴다. "tense tone"처럼 한 단어로 끝내지 말고 누가 어떤 상황에서 어떤 마음으로 말하는지까지. 예: `(speaking in Korean at a natural pace with clear, crisp pronunciation; exasperated but affectionate, the familiar nagging of a long-married wife)`.
-  - 발음이 뭉개지지 않게 `clear, crisp pronunciation`을 넣고, **대사 길이에 시간을 넉넉히** 준다: 1초에 4음절 이하. 긴 대사는 두 구간으로 나눈다.
-  - 대사는 큰따옴표 `"…"`로 감싼다.
+- 대사: `At <초>s, on-screen, he says (speaking in Korean, <목소리 묘사>): "대사"` — 한 구간에 한 사람만 말하고, 그 구간은 말하는 사람을 잡는다(투샷에서 주고받기 금지: 입이 엉뚱한 사람에게 붙는다).
+  - **화면 안/밖 표시**: 화면에 보이는 사람이면 `on-screen`, 안 보이는 목소리면 `an off-screen voice ... (all on-screen mouths stay closed)`.
+  - **괄호 안은 "소리"만 묘사한다**: 크기·속도·발음·음색(예: `low and quiet, at a natural pace, every syllable clear`, `firm and loud, clipped`). 발음이 뭉개지지 않게 `clear, crisp pronunciation`을 넣는다.
+  - **얼굴 연기는 감정 형용사 대신 동작으로**: "sadly", "shocked", "terrified", "furious" 같은 말은 시댄스가 과장 연기로 바꾼다. 대신 `his jaw tightens once`, `he blinks once and looks down`, `she exhales through her nose`처럼 몸의 움직임 2~3개 이내로 쓴다(출처: AInspire 시댄스 2.5 팁 영상, 승인 83건 분석).
+  - **시간을 넉넉히**: 1초에 4음절 이하. 긴 대사는 두 구간으로 나눈다. 대사는 큰따옴표 `"…"`로 감싼다.
+  - **시선**: 말하는 사람은 상대를 본다. 렌즈(카메라)를 정면으로 보지 않는다 — 시청자에게 말 거는 것처럼 보인다.
+  - **마지막 대사는 클립 끝 2~3초 전에 끝낸다.** 그 뒤는 반응과 주변 소리만(편집 여유, 립싱크 흔들림 숨김).
   - [Visual and Camera Treatment]에 "All Korean dialogue is pronounced clearly at a natural speaking pace, never mumbled or rushed."를 넣는다.
 - 첫 대사 앞에 2~3초 동작만 있는 구간을 둔다.
 - 앞 구간이 끝난 상태에서 다음 구간을 시작한다. 반응보다 원인을 먼저 쓴다.
@@ -138,10 +141,14 @@
 - 마지막 구간은 2초 이상, "Final frame: ..."으로 멈춘 상태를 쓴다.
 
 [Visual and Camera Treatment]
-카메라 높이(눈높이 기본, 로우앵글·부감은 얼굴이 흔들려 피함), 액션 라인의 어느 쪽인지, 고정(locked off)인지 움직이는지. 얼굴이 크게 나오게(480p). 조명은 "Lighting for this location: ..." 한 문장 — 같은 장소의 클립은 이 문장을 글자 그대로 재사용한다.
+카메라 높이(눈높이 기본, 로우앵글·부감은 얼굴이 흔들려 피함), 액션 라인의 어느 쪽인지(180도 선을 넘지 않는다), 얼굴이 크게 나오게(480p).
+렌즈는 숫자로 고정한다: 미디엄·투샷은 50mm, 클로즈업은 85mm. 샷 크기를 바꿀 땐 줌 대신 컷(렌즈 교체)으로.
+**카메라 무빙은 클립당 하나만**(보통 key moment의 달리 인). 나머지는 "Camera locked off on a tripod; no zoom, no pan, no tilt, no push-in, no drift, no handheld shake, no gimbal sway, no whip pan, no crane, no speed ramp."로 촘촘히 금지한다.
+[Event Script]의 구간마다 렌즈 mm, 고정/무빙, 인물 좌우 위치를 다시 적는다(앞 구간 설정이 이어진다고 가정하지 않는다).
+연기 톤 문장: "Acting stays natural and restrained: small, realistic facial expressions and gestures, no exaggerated or comedic mugging."  조명은 "Lighting for this location: ..." 한 문장 — 같은 장소의 클립은 이 문장을 글자 그대로 재사용한다.
 
 [Audio]
-"No BGM; only ambient and action sounds:"로 시작해 <효과음>을 나열. 말하는 인물마다 부록 A의 **목소리 문구를 글자 그대로** 쓰고, 톤이 다르면 문구 **뒤에** 덧붙인다. 끝에 "Only the man speaking in each shot moves his mouth; the other keeps his mouth closed."
+"No BGM; only ambient and action sounds:"로 시작해 <효과음>을 나열. 화면 밖 소리는 이름·방향·거리·변화를 적는다(예: `<a long horn blast from far outside the doorway on the right, growing louder>`). 음악처럼 들릴 수 있는 소리 이름(종, 피리 등)은 꼭 필요할 때만. "No BGM"은 [Generation Goal] 끝에도 한 번 적는다. 말하는 인물마다 부록 A의 **목소리 문구를 글자 그대로** 쓰고, 톤이 다르면 문구 **뒤에** 덧붙인다. 끝에 "Only the man speaking in each shot moves his mouth; the other keeps his mouth closed."
 속마음은 여기 넣지 않는다(편집에서 따로 얹음).
 
 [Maintain Consistency]
@@ -158,9 +165,17 @@
 
 - 부록 A와 다른 외형을 쓰지 않는다(알아보는 표시는 글자 그대로만).
 - 시각적인 것은 부정문 대신 긍정 상태로("no sword" 대신 "both hands empty"). 부정문은 자막·BGM·슬로모션·참조 제외 문구에만.
-- 강한 감정 단어("manic", "extremely shocked")를 쓰지 않는다. 눈이 빛나는 결함이 생긴다. 시선, 입, 멈춤으로 보여 준다.
+- 감정 단어("manic", "shocked", "terrified", "sadly")를 쓰지 않는다. 과장 연기와 눈이 빛나는 결함이 생긴다. 시선, 입, 턱, 숨, 멈춤 같은 동작으로 보여 준다.
 - 카메라에 안 보이는 것을 쓰지 않는다. 화면 밖 사건은 소리나 빛으로만.
 - 화면비, 해상도를 쓰지 않는다. 시간은 타임라인 구간 표기(0-3s)와 "At Ns"로만 쓴다.
 - 대본에 없는 대사를 지어내지 않는다.
+- 꼭 지켜야 할 금지(카메라 무빙, BGM, 자막)는 세 곳에 반복한다: [Generation Goal], 해당 칸, [Maintain Consistency].
+- 인원수는 숫자로 잠그고 부정문으로 한 번 더: "Exactly three men are visible; no other person appears." 진행량(문이 몇 도 열렸는지)은 숫자 대신 결과로("the door is fully open and the hallway is visible"). 참조 이미지와 글의 숫자가 다르면 글이 이긴다.
+
+### 다시 뽑을 때 (Claude가 테이크 기록에 적용)
+
+- 테이크 기록에 "only change from take N: …" 한 줄로 바꾼 것 하나만 적는다. 한 번에 여러 군데 고치지 않는다.
+- 실패 원인을 나눈다: 참조(얼굴·배경이 틀림) / 문장(동작·순서가 틀림) / 운(같은 프롬프트도 매번 다름).
+- 같은 컷이 여러 번 실패하면 프롬프트 고치기를 멈추고 전략을 바꾼다(컷 쪼개기, 시작 프레임, 승인된 다른 테이크 쓰기). 승인된 테이크는 다시 뽑지 않는다.
 
 ---
