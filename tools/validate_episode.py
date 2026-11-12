@@ -21,7 +21,10 @@ NAMES = {
 }
 SPEECH_VERBS = r"(?:speaks|says|asks|shouts|whispers|mutters|answers|calls|groans|replies)"
 BOILERPLATE_NEG = ["Do not use the grey background or the panel layout", "not a fixed keyframe",
-                   "Do not use the image background"]
+                   "Do not use the image background",
+                   # 2026-11 시댄스 리서치 반영: 자막·BGM·슬로모션은 부정문이 통하는 영역, 참조 제외 문구는 공식 형식
+                   "Do not copy its framing, grey background or panel layout", "No BGM", "No subtitles, no on-screen text",
+                   "no slow motion"]
 
 
 class Report:

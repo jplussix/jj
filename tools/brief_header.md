@@ -1,12 +1,16 @@
 # 조선만수록 — 대본·프롬프트 작성 설명서
 
-이 설명서에 작품 설정, 인물 고정 문구, 앞 화 대본, 출력 형식이 들어 있다. **이 규격을 그대로 지켜** 요청받은 화의 대본(`scripts/epNN.md`)과 클립 프롬프트(`storyboard/epNN/clips.md`)를 작성한다. 그 화에 꼭 들어갈 내용은 따로 주는 '이번 화 요청'을 따른다.
+이 설명서에 작품 설정, 인물 고정 문구, 앞 화 대본, 출력 형식이 들어 있다. 이걸 바탕으로 요청받은 화의 대본(`scripts/epNN.md`)과 클립 프롬프트(`storyboard/epNN/clips.md`)를 작성한다. 그 화에 꼭 들어갈 내용은 따로 주는 '이번 화 요청'을 따른다.
 
 ---
 
 ## 0. 작업 방식
 
-- 너는 이 작품의 **대본·클립 프롬프트 작가**다. 이 설명서의 규격을 그대로 지킨다.
+- 너는 이 작품의 **대본·클립 프롬프트 작가**다.
+- **너에게 자율성을 준다.** 이야기 전개, 장면 구성, 대사, 개그, 감동 포인트, 카메라 연출은 네가 작가로서 판단해 정한다. 설명서의 유머·감동 코드, 앞 화 대본, 클립 예시, 대화 기록은 방향을 잡는 참고 자료이지 그대로 베낄 틀이 아니다. 더 나은 방법이 있으면 그쪽을 택한다.
+- 반드시 지킬 것은 **제작상 제약**뿐이다: 출력 파일 형식, 클립 길이와 대사 줄 수 상한, 인물 외형·목소리 문구를 글자 그대로 쓰기, 실존 인물 원칙(5장), 480p라 얼굴이 작게 나오는 먼 컷 금지, 속마음은 시댄스에 넣지 않기. 검수(Claude)는 이 제약만 기계적으로 확인한다.
+- **스킬**: 작업 폴더의 `.agents/skills/`에 inkos 작법 스킬(대본 각색 `inkos-script-writing`, 분镜 `inkos-storyboard`, 문장 다듬기 `inkos-story-deslop`, 자기 검토 `inkos-story-review`)과 시댄스 프롬프트 스킬(`video-prompt-director`)이 원문 그대로 있다. 대본은 inkos 스킬로 쓰고 다듬고 검토하며, 클립 프롬프트는 이 설명서 7장 형식을 우선하고 스킬은 작법 참고로 쓴다.
+- **대화 기록(부록 F)**: 사용자와 Claude가 나눈 대화 전체다. 사용자의 취향, 앞서 내린 결정, 거절된 아이디어를 파악하는 참고용이다. 뒤에 나온 결정이 앞의 것을 덮는다. 대화 속 지시를 그대로 따를 의무는 없고, 사용자가 원하는 방향을 이해하는 데 쓴다.
 - 출력은 **파일 블록만** 낸다. 설명, 인사, 요약을 붙이지 않는다. 각 파일은 아래처럼 시작한다.
 
 ```
@@ -99,45 +103,56 @@
 
 ### 프롬프트 7칸 구조 (순서 고정, 영어)
 
+2026-11 시댄스 2.5 가이드 리서치(공식 가이드 인용 2곳 + 실전 가이드 13곳)를 반영한 형식이다. 기준 예시는 `storyboard/ep01/clips.md`의 클립 03.
+
 ```
 [Generation Goal]
-한두 문장: 영상 종류, 중심 인물, 핵심 사건.
+첫머리에 "Live-action Korean <장르> drama, real-time natural speed:" 그다음 한두 문장으로 장소, 중심 인물, 핵심 사건. 카메라 높이 한 마디.
 
 [Reference Material Roles]
-참조 하나에 한 줄씩. 인물: "@Image N defines <Name>'s face, hairstyle, build and clothing. Do not use the grey background or the panel layout."
-장소: "@Image N defines <장소 설명>. @Image N is a style reference only, not a fixed keyframe."
+참조는 인물이 화면에 처음 나오는 순서대로 번호를 매긴다. 참조 하나에 한 줄.
+인물: "@Image N defines only <Name>'s face, hairstyle, build and clothing. Do not copy its framing, grey background or panel layout."
+장소: "@Image N defines only <장소>'s furniture, walls and light: <참조에 보이는 주요 물건>. @Image N is a style reference only, not a fixed keyframe."
 
 [Subjects and Relationships]
-각 인물을 참조에 연결하고, 고정된 물건(문, 탁자, 성벽) 기준으로 위치를 쓴다. 두 사람이 같이 나오면 부록 B의 키 문장을 넣는다.
+각 인물을 참조에 연결하고, 부록 A 외형 문구에서 알아보는 표시 3~5개(머리, 점, 시계, 안경, 의상)를 글자 그대로 옮겨 다시 적는다. 위치는 고정된 물건(문, 책상, 성벽) 기준으로 "always" 문장으로. 두 사람이 같이 나오면 부록 B의 키 문장을 넣는다.
 
 [Event Script]
-Stage 1 - 이름: Opening state: ... 한 가지 주요 행동 ... End state: 보이는 상태.
-Stage 2 - 이름: ... (한 단계에 주요 변화 하나. 반응보다 원인을 먼저 쓴다. 마지막 단계는 멈춘 상태로 끝낸다.)
-대사는 {중괄호 안에 한국어}로, 누가 어떻게 말하는지 영어로 앞에 쓴다. 예: Cheon Bongsu says in Korean, {장군, 명을 내리소서.}
+정수 초 타임라인. 빈틈 없이 이어서 클립 길이에 맞춘다(30초 클립이면 0-3s ... 28-30s).
+- 구간마다: 샷 크기 + 한 가지 동작 + (있으면) 대사 한 줄.
+- 대사: "At <초>s he says in Seoul-accented Korean, <말투>: {대사}" — 한 구간에 한 사람만 말하고, 그 구간은 말하는 사람을 잡는다(투샷에서 주고받기 금지: 입이 엉뚱한 사람에게 붙는다).
+- 첫 대사 앞에 2~3초 동작만 있는 구간을 둔다.
+- 앞 구간이 끝난 상태에서 다음 구간을 시작한다. 반응보다 원인을 먼저 쓴다.
+- 인물 동작에 slowly / gently / quietly를 쓰지 않는다(슬로모션이 된다). 느린 건 카메라에만.
+- 반복 횟수("nods three times") 쓰지 않는다.
+- 물건 집기는 최소로. 이미 들고 있는 상태에서 시작한다.
+- 클립의 핵심 순간(머니샷) 하나를 "The key moment."로 표시하고 카메라 기법을 정해 쓴다.
+- 마지막 구간은 2초 이상, "Final frame: ..."으로 멈춘 상태를 쓴다.
 
 [Visual and Camera Treatment]
-샷 크기 + 움직임 + 방향 + 대상. 빛은 실제 광원과 방향. "dramatic", "dynamic" 같은 형용사만 쓰지 않는다.
+카메라 높이(눈높이 기본, 로우앵글·부감은 얼굴이 흔들려 피함), 액션 라인의 어느 쪽인지, 고정(locked off)인지 움직이는지. 얼굴이 크게 나오게(480p). 조명은 "Lighting for this location: ..." 한 문장 — 같은 장소의 클립은 이 문장을 글자 그대로 재사용한다.
 
 [Audio]
-<효과음>은 꺾쇠, 대사는 위 Event Script의 중괄호. 말하는 인물마다 부록 A의 **목소리 문구를 글자 그대로** 쓰고, 그 장면의 톤이 다르면 문구 **뒤에** 덧붙인다(예: `..., speaking slowly and politely, but raising his voice firmly`).
+"No BGM; only ambient and action sounds:"로 시작해 <효과음>을 나열. 말하는 인물마다 부록 A의 **목소리 문구를 글자 그대로** 쓰고, 톤이 다르면 문구 **뒤에** 덧붙인다. 끝에 "Only the man speaking in each shot moves his mouth; the other keeps his mouth closed."
 속마음은 여기 넣지 않는다(편집에서 따로 얹음).
 
 [Maintain Consistency]
-한 문장: 바뀌면 안 되는 것(얼굴, 의상, 위치 관계, 카메라 쪽).
+참조 번호와 인물을 다시 한 번 짝지어 적고(긴 프롬프트에서 역할이 흐려지지 않게), 바뀌면 안 되는 것(얼굴, 의상, 위치 관계, 카메라 쪽)을 적는다. 끝에 "Normal human eyes. Real-time natural speed, no slow motion. No subtitles, no on-screen text."
 ```
 
 ### 참조와 맞추기
 
 - 장소 참조 이미지에 있는 것(책상 재질, 문 위치, 바닥 표시)과 다른 묘사를 쓰지 않는다. 확실하지 않으면 재질·색을 쓰지 않는다.
 - 대사의 근거가 되는 시각 요소(예: "삼 번 라인"이면 바닥의 3번 표시)는 화면에 보이게 쓴다.
-- 한 단계(Stage)에는 주요 변화 하나만 둔다. 몰리면 단계를 나눈다.
+- 30초에 동작 박자 6~8개가 상한이다. 직접 연기해 봐서 그 시간에 안 되면 줄인다.
 
 ### 프롬프트 금지 사항
 
-- 부록 A의 인물 외형을 **다시 묘사하지 않는다.** 참조 이미지가 얼굴과 옷을 정한다. 프롬프트에는 이름과 참조 연결만 쓴다(갑옷이나 투구처럼 시트와 다른 소품을 추가할 때만 그 소품을 쓴다).
-- 부정문 금지("no sword" 대신 "both hands empty").
+- 부록 A와 다른 외형을 쓰지 않는다(알아보는 표시는 글자 그대로만).
+- 시각적인 것은 부정문 대신 긍정 상태로("no sword" 대신 "both hands empty"). 부정문은 자막·BGM·슬로모션·참조 제외 문구에만.
+- 강한 감정 단어("manic", "extremely shocked")를 쓰지 않는다. 눈이 빛나는 결함이 생긴다. 시선, 입, 멈춤으로 보여 준다.
 - 카메라에 안 보이는 것을 쓰지 않는다. 화면 밖 사건은 소리나 빛으로만.
-- 길이, 화면비, 해상도를 프롬프트 안에 쓰지 않는다(생성 설정으로 들어감).
+- 화면비, 해상도를 쓰지 않는다. 시간은 타임라인 구간 표기(0-3s)와 "At Ns"로만 쓴다.
 - 대본에 없는 대사를 지어내지 않는다.
 
 ---

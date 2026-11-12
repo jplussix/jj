@@ -7,7 +7,7 @@ target clips (if any), and optionally the full user<->Claude chat log.
 
 Usage:
     python3 tools/clip_writer.py --episode 1 --clips 02A 02B
-    python3 tools/clip_writer.py --episode 1 --clips 02A 02B --with-chat --dry-run
+    python3 tools/clip_writer.py --episode 1 --clips 02A 02B --dry-run
 
 Output blocks expected from Gemini:  === CLIP: 02A ===  followed by the full clip section.
 Each round's raw output and the review go to storyboard/epNN/gemini/.
@@ -79,7 +79,7 @@ def main():
     ap.add_argument("--model", default="agy:gemini-4-argon-high")
     ap.add_argument("--allow-fallback", action="store_true", help="use Flash models if the main model is unavailable")
     ap.add_argument("--max-rounds", type=int, default=3)
-    ap.add_argument("--with-chat", action="store_true", help="append the user<->Claude chat log")
+    ap.add_argument("--no-chat", action="store_true", help="leave out the user<->Claude chat log (included by default)")
     ap.add_argument("--note", default="", help="extra instruction for this run")
     ap.add_argument("--dry-run", action="store_true", help="write the prompt only, do not call Gemini")
     ap.add_argument("--fresh", action="store_true", help="do not show the existing draft of the target clips")
@@ -98,9 +98,7 @@ def main():
     approved = [sections[c] for c in order[:first]][-2:]  # the two clips right before the target
     drafts = [] if a.fresh else [sections[c] for c in a.clips if c in sections]
 
-    system = build_brief(ep, label=f"이번 화({ep}화) 대본 — 클립의 원본")
-    if a.with_chat:
-        system += "\n\n---\n\n## 부록 F. 지금까지 사용자와 Claude가 나눈 대화\n\n제작 결정과 사용자 취향의 근거다. 뒤에 나온 결정이 앞의 것을 덮는다.\n\n" + read(CHAT_LOG)
+    system = build_brief(ep, label=f"이번 화({ep}화) 대본 — 클립의 원본", with_chat=not a.no_chat)
     system += ("\n\n---\n\n## 클립 단위 작업 출력 형식\n\n이번 작업은 대본 전체가 아니라 지정된 클립만 쓴다. "
                "클립마다 `=== CLIP: ID ===` 한 줄로 시작하고, 그 아래에 `## 클립 ID — 장소 (N초)`부터 7장 형식 그대로의 클립 섹션 전문을 낸다. "
                "설명이나 인사는 쓰지 않는다.\n")
@@ -119,7 +117,7 @@ def main():
 
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    log = [f"# 클립 {', '.join(a.clips)} 자동 작성 기록 ({stamp})", f"- 모델: `{a.model}`", f"- 대화 기록 포함: {a.with_chat}", ""]
+    log = [f"# 클립 {', '.join(a.clips)} 자동 작성 기록 ({stamp})", f"- 모델: `{a.model}`", f"- 대화 기록 포함: {not a.no_chat}", ""]
     rep, new = None, {}
     for rnd in range(1, a.max_rounds + 1):
         print(f"[round {rnd}] {a.model} ...", flush=True)
