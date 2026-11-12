@@ -32,7 +32,8 @@ character-consistency 스킬의 Character Brief 형식. 각 인물의 **IDENTITY
 | 조윤 | Isaac - Clear Korean Narrator | `8yI73tA9sY25UYpFjsgD` | 확정 |
 | 정숙 | Seulki | `ksaI0TCD9BstzEzlxj4q` | 확정 |
 | 하은 | Mina - Clear, Calm & Warm | `aiUUgjHa4mpHf6UenZuf` | 확정 |
-| 군관2·관리소장·최 상무·김종서 | — | — | 미정 |
+| 최 상무 | Kevin | `UGyzuK2FVKdr7ri5KDh8` | 확정 (클로드 선택) |
+| 군관2·관리소장·김종서 | — | — | 미정 (나올 때 클로드가 고름) |
 
 ## 박만수 (현대)
 
