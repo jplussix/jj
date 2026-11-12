@@ -23,10 +23,18 @@ AI 드라마 유튜브 채널 프로젝트. 대본은 `scripts/`, 인물 설정�
 - 캐릭터 시트는 3칸(상반신 정면 / 전신 정면 / 전신 뒷면), 회색 단색 배경.
 - 의상이 바뀌면 새 시트를 만든다.
 
-## 연기 톤
+## 프롬프트 쓰는 법 (사용자 지시, 출처: AInspire 시댄스 2.5 팁 영상 — 승인 83건 분석)
 
-- **과장된 표현은 뺀다.** 눈 질끈 감기, 땀방울 흐르기, 볼 부풀려 웃음 참기, 경악한 얼굴 같은 만화식 반응 대신 한국 TV 드라마처럼 작고 자연스러운 표정·몸짓으로 쓴다(사용자 지시). 웃음은 상황과 대사에서 나오게 한다.
-- 프롬프트에 "Acting stays natural and restrained: small, realistic facial expressions and gestures, no exaggerated or comedic mugging."를 넣는다.
+모든 시댄스 프롬프트는 이 방식으로 쓴다. 자세한 형식은 `tools/brief_header.md` 7절.
+
+- **감정 형용사 금지, 동작으로.** "sad, shocked, terrified, weary, resigned" 같은 말은 과장 연기를 부른다. "턱을 한 번 조인다", "콧등을 한 번 짚는다", "한 번 깜빡이고 아래를 본다"처럼 몸의 움직임 2~3개 이내로 쓴다.
+- **땀·물기·눈물 묘사 금지.** "sheen of sweat"만 써도 눈 감은 얼굴과 겹쳐 우는 것처럼 나왔다(07B). 얼굴은 "dry skin, no sweat or moisture on the face"처럼 긍정문으로 먼저 쓰고 금지 칸에 한 번 더.
+- **과장 연기 금지.** 연기 톤 문장: "Acting stays natural and restrained: small, realistic facial expressions and gestures, no exaggerated or comedic mugging." 웃음은 상황과 대사에서 나오게 한다.
+- **대사**: `At Ns, on-screen, he says (speaking in Korean, <크기·속도·발음>): "대사"`. 괄호 안은 소리만, 1초에 4음절 이하, `clear, crisp pronunciation`. 화면 밖 목소리는 off-screen으로 표시. 마지막 대사는 클립 끝 2~3초 전에 끝낸다.
+- **시선**: 말하는 사람은 상대를 보고 렌즈를 보지 않는다.
+- **카메라**: 렌즈 mm(미디엄 50mm, 클로즈업 85mm), 무빙은 클립당 하나, 나머지는 "no zoom, no pan, no tilt, no push-in, no drift, no handheld shake…"로 촘촘히 금지. 구간마다 렌즈·무빙·좌우 위치를 다시 적는다.
+- **금지는 세 곳에 반복**(맨 앞, 해당 칸, 끝). 인원수는 숫자 + "no other person appears". 진행량은 숫자 대신 결과로.
+- **다시 뽑기**: 테이크 기록에 "only change from take N" 한 줄, 한 번에 하나만 바꾼다. 여러 번 실패하면 전략을 바꾼다. 승인된 테이크는 다시 뽑지 않는다.
 
 ## 스킬
 
