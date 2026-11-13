@@ -41,6 +41,9 @@ SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs),
     ("renders/ep01/clip08a_take1.mp4", None, 0, ("white", 0.9), ("black", 0.3)),
     ("renders/ep01/clip08b_take1.mp4", None, 0, ("black", 0.3), ("black", 1.5)),
 ]
+AV_SHIFT = 0.06  # seconds the source dialogue is pulled earlier
+
+
 def _dur(path):
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", R(path)],
                          capture_output=True, text=True).stdout
@@ -303,7 +306,9 @@ def main():
         fc.append(f"[{len(inputs)//2 - 1}:a]aresample=48000,aformat=channel_layouts=stereo,volume={vol},"
                   f"adelay={int(tm*1000)}|{int(tm*1000)}[vo{k}]")
         vo_labels.append(f"[vo{k}]")
-    fc.append("[0:a]" + "".join(vo_labels) + f"amix=inputs={len(vo_labels)+1}:normalize=0:duration=first[base]")
+    # Seedance's own audio runs ~60 ms behind the lips: pull it 60 ms earlier (user picked -60 ms in an A/B test).
+    fc.append(f"[0:a]atrim=start={AV_SHIFT},asetpts=PTS-STARTPTS,apad=whole_dur={TOTAL:.3f}[src]")
+    fc.append("[src]" + "".join(vo_labels) + f"amix=inputs={len(vo_labels)+1}:normalize=0:duration=first[base]")
     fc.append("[base]asplit=2[dia][key]")
     mix = ["[dia]"]
     n = 1 + len(VO)  # inputs 1..len(VO) are the inner-monologue VO files
