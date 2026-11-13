@@ -2,3 +2,4 @@
 handoff/chat_log.md
 storyboard/*/gemini/last_prompt.md
 tools/__pycache__/
+handoff/session_full_transcript.jsonl.gz
