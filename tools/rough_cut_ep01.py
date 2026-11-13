@@ -41,7 +41,9 @@ SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs),
     ("renders/ep01/clip08a_take1.mp4", None, 0, ("white", 0.9), ("black", 0.3)),
     ("renders/ep01/clip08b_take1.mp4", None, 0, ("black", 0.3), ("black", 1.5)),
 ]
-AV_SHIFT = 0.06  # seconds the source dialogue is pulled earlier
+AV_SHIFT = 0.0  # whole-episode dialogue shift (none: only 07F needed it)
+# Per-clip dialogue shift in seconds (audio pulled earlier). User A/B: 07F lips matched at -60 ms; other clips were fine.
+CLIP_AUDIO_SHIFT = {"renders/ep01/clip07f_combined.mp4": 0.06}
 
 
 def _dur(path):
@@ -286,7 +288,7 @@ def main():
                  "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", out])
         else:
             run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", str(off), "-i", R(src), "-vf", "scale=854:480,fps=24,setsar=1" + vfx,
-                 "-af", "aresample=48000,aformat=channel_layouts=stereo" + afx + f",apad,atrim=0:{dur}", "-t", str(dur),
+                 "-af", (f"atrim=start={CLIP_AUDIO_SHIFT[src]},asetpts=PTS-STARTPTS," if src in CLIP_AUDIO_SHIFT else "") + "aresample=48000,aformat=channel_layouts=stereo" + afx + f",apad,atrim=0:{dur}", "-t", str(dur),
                  "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-c:a", "aac", "-b:a", "192k", out])
         norm.append(out)
     lst = os.path.join(TMP, "list.txt")
@@ -306,7 +308,6 @@ def main():
         fc.append(f"[{len(inputs)//2 - 1}:a]aresample=48000,aformat=channel_layouts=stereo,volume={vol},"
                   f"adelay={int(tm*1000)}|{int(tm*1000)}[vo{k}]")
         vo_labels.append(f"[vo{k}]")
-    # Seedance's own audio runs ~60 ms behind the lips: pull it 60 ms earlier (user picked -60 ms in an A/B test).
     fc.append(f"[0:a]atrim=start={AV_SHIFT},asetpts=PTS-STARTPTS,apad=whole_dur={TOTAL:.3f}[src]")
     fc.append("[src]" + "".join(vo_labels) + f"amix=inputs={len(vo_labels)+1}:normalize=0:duration=first[base]")
     fc.append("[base]asplit=2[dia][key]")

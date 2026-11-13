@@ -31,7 +31,7 @@ git checkout claude/youthful-maxwell-d8e8xd
 - 클립 프롬프트: `storyboard/ep01/clips.md`. 테이크 기록: `storyboard/ep01/clip0*_takes.md`.
 - 러프컷: `renders/ep01/ep01_roughcut_v3.mp4` (8분 19초), 만드는 스크립트 `tools/rough_cut_ep01.py`.
   - 클립 순서, 자막(06~08은 Whisper 시간), 효과음, 배경음악(장면 시작·전환·핵심 순간만, 낮게), 속마음 VO, 화면 전환이 전부 이 스크립트에 있다.
-  - 소리 싱크: 시댄스 원본 소리를 60ms 앞당김(`AV_SHIFT`, 사용자 A/B 확인).
+  - 소리 싱크: 07F만 소리를 60ms 앞당김(`CLIP_AUDIO_SHIFT`, 사용자 A/B 확인). 다른 클립은 그대로.
   - 세그먼트는 24fps 프레임 단위로 길이를 맞춰야 싱크가 안 밀린다(스크립트에 반영).
 - 속마음: 영상 속 박만수 목소리를 복제한 일레븐랩스 목소리 `박만수 (영상 클론)` voice_id `2QR7415RxATcyYH6g8Rd`, 모델 eleven_v4, 감정 태그 + speed 1.12. 파일 `audio/ep01/inner/v2/`. v4가 첫마디를 반복하는 일이 잦아 Whisper로 확인 후 잘라 냄(`*_fx.mp3`).
 - 크레딧: 힉스필드 시댄스 2.5는 초당 3크레딧. 생성 전에 무엇을 몇 크레딧에 돌릴지 매번 확인받는다(CLAUDE.md).
