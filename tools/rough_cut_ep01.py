@@ -28,7 +28,7 @@ SEGMENTS = [  # (file, duration, start offset in source, (fade-in colour, secs),
     ("renders/ep01/clip06a_combined.mp4", 25.6, 0, ("black", 0.6), ("black", 0.35)),
     ("renders/ep01/clip06b_seedance.mp4", 24.06, 0, ("black", 0.35), None),
     ("renders/ep01/clip06c_take1.mp4", 28.05, 0, None, ("black", 0.5)),
-    ("renders/ep01/clip07a_take1.mp4", 26.0, 0, ("black", 0.5), None),  # cut before the over-acted laugh
+    ("renders/ep01/clip07a_take1.mp4", 25.79, 0, ("black", 0.5), None),  # cut before the over-acted laugh (shot change at 25.83)
     ("renders/ep01/clip07a_laugh_fix.mp4", 4.0, 0, None, ("black", 0.25)),  # restrained laugh re-shoot
     ("renders/ep01/clip07b_combined.mp4", 24.45, 0, ("black", 0.25), None),  # take1 0-18.375 + dry-face ending
     ("renders/ep01/clip07c_fix.mp4", None, 0, None, None),      # "장강님" cut out
